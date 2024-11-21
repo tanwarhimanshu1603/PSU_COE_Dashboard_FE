@@ -26,6 +26,8 @@ const AdminLogin = () => {
       if (!response.ok) {
         throw new Error("Failed to log in");
       }
+
+      
       if (response.ok) {
         localStorage.setItem("isLoggedIn", true);
         // alert("Login successful!");
