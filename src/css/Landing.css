@@ -12,7 +12,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: linear-gradient(to right, #4facfe, #00f2fe);
+    background: linear-gradient(to right, #034681, #013d41);
     font-family: 'Arial', sans-serif;
     color: #fff;
     text-align: center;
@@ -41,7 +41,7 @@
   /* Buttons container */
   .landing-buttons {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 20px;
   }
   
@@ -54,7 +54,7 @@
     border: none;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease;
-    width: 200px;
+    width: 300px;
     text-align: center;
   }
   
