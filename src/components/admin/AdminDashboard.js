@@ -8,6 +8,16 @@ const AdminDashboard = () => {
 
   const navigate = useNavigate(); // Initialize useNavigate
 
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+    // console.log(empId);
+    
+    if (!isLoggedIn) {
+      // If no empId is found, redirect to login page
+      window.location.href = "/adminLogin";
+      return;
+    }
+
+    
   const fetchEmployeeData = async () => {
     try {
       setError(""); // Clear previous errors
