@@ -1,0 +1,102 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Container Styling */
+  .landing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .landing-header {
+    margin-bottom: 40px;
+  }
+  
+  .logo {
+    width: 100px;
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  
+  p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  
+  /* Buttons container */
+  .landing-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Button Styling */
+  .landing-btn {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    width: 200px;
+    text-align: center;
+  }
+  
+  .landing-btn:hover {
+    transform: scale(1.05);
+  }
+  
+  .admin-btn {
+    background-color: #f74c47;
+    color: #fff;
+  }
+  
+  .admin-btn:hover {
+    background-color: #d03b32;
+  }
+  
+  .employee-btn {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .employee-btn:hover {
+    background-color: #45a149;
+  }
+  
+  .register-btn {
+    background-color: #ffb800;
+    color: #fff;
+  }
+  
+  .register-btn:hover {
+    background-color: #e69f00;
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 600px) {
+    .landing-container {
+      padding: 20px;
+    }
+  
+    .landing-btn {
+      width: 100%;
+    }
+  }
+  

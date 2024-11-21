@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import '../../css/Login.css'
 const EmployeeLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -43,28 +43,35 @@ const EmployeeLogin = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email:</label>
+    <div className="login-container">
+      
+      <form className="login-form" onSubmit={handleSubmit}>
+        <h2>Employee Login</h2>
+        <div className="form-group">
+          <label htmlFor="email">Email:</label>
           <input
-            type="email"
+            type="text"
+            id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
-        <div>
-          <label>Password:</label>
+        <div className="form-group">
+          <label htmlFor="password">Password:</label>
           <input
             type="password"
+            id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
-        <button type="submit">Login</button>
+        <div className="btn-container">
+        <button type="submit" className='btn' >Submit</button>
+        </div>
+        {/* <span>Not registered yet?<span onClick={handleClick} style={{cursor:'pointer',color:'#00f1ff'}}>Register</span></span> */}
+        
       </form>
       {error && <p style={{ color: "red" }}>{error}</p>}
     </div>
