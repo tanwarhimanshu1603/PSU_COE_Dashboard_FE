@@ -10,18 +10,26 @@ const EmployeeDashboard = () => {
   useEffect(() => {
     // Retrieve empId from localStorage
     const empId = localStorage.getItem("empId");
+    const empToken = localStorage.getItem("empToken");
     // console.log(empId);
     
-    if (!empId) {
+    if (!empId || !empToken) {
       // If no empId is found, redirect to login page
-      window.location.href = "/employeeLogin";
+      window.location.href = "/";
       return;
     }
 
     // Fetch employee details using empId
     const fetchEmployeeDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/v1/employee/getById/${empId}`);
+        // const response = await fetch(`http://localhost:8080/api/v1/employee/getById/${empId}`);
+        const response = await fetch(`http://localhost:8080/api/v1/employee/getById/${empId}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': empToken 
+          }
+        });
         const data = await response.json();
 
         if (response.ok) {
@@ -43,7 +51,7 @@ const EmployeeDashboard = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("empId"); // Remove empId from localStorage
-    localStorage.removeItem("isLoggedIn"); // Remove login status
+    localStorage.removeItem("empToken"); // Remove login status
     navigate("/"); // Redirect to the homepage
   };
 

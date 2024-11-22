@@ -8,12 +8,12 @@ const AdminDashboard = () => {
 
   const navigate = useNavigate(); // Initialize useNavigate
 
-  const isLoggedIn = localStorage.getItem("isLoggedIn");
+  const jwtToken = localStorage.getItem("jwtToken");
     // console.log(empId);
     
-    if (!isLoggedIn) {
+    if (!jwtToken) {
       // If no empId is found, redirect to login page
-      window.location.href = "/adminLogin";
+      window.location.href = "/";
       return;
     }
 
@@ -51,7 +51,7 @@ const AdminDashboard = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("isLoggedIn"); // Remove login status
+    localStorage.removeItem("jwtToken"); // Remove login status
     navigate("/"); // Redirect to the login page
   };
 
