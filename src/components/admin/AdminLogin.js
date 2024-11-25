@@ -21,7 +21,9 @@ const AdminLogin = () => {
         body: JSON.stringify({ adminEmail: email, adminPassword: password })
       });
 
-      // console.log(response);
+      // console.log(response.body);
+      const result = await response.text();
+      console.log(result);
       
       if (!response.ok) {
         throw new Error("Failed to log in");
@@ -36,7 +38,7 @@ const AdminLogin = () => {
         setError("Invalid email or password");
       }
     } catch (err) {
-      setError(err.message);
+      setError("Error occurred while admin login "+err.message);
     }
   };
 

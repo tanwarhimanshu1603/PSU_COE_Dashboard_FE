@@ -17,6 +17,7 @@ const EmployeeLogin = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          // "Authorization": localStorage.getItem("token")          
         },
         body: JSON.stringify({ empEmail: email, empPasswd: password })
       });
@@ -30,7 +31,7 @@ const EmployeeLogin = () => {
       }
       if (response.ok) {
         localStorage.setItem("empId", result.empId);
-        
+        // localStorage.setItem("token",result.token);
         localStorage.setItem("isLoggedIn", true);
         // alert("Login successful!");
         navigate("/employeeDashboard"); // Redirect to admin dashboard

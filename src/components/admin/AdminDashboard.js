@@ -94,9 +94,23 @@ const AdminDashboard = () => {
             padding: "10px 20px",
             fontSize: "16px",
             cursor: "pointer",
+            marginRight: "5px"
           }}
         >
           Search
+        </button>
+        <button
+          type="submit"
+          style={{
+            padding: "10px 20px",
+            fontSize: "16px",
+            backgroundColor: "#f44336",
+            color: "#fff",
+            borderColor: "#f44336",
+            cursor: "pointer",
+          }}
+        >
+          Add Employee
         </button>
       </form>
 
