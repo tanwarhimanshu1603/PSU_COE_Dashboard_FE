@@ -31,7 +31,13 @@ const AdminDashboard = () => {
       setError(""); // Clear previous errors
       setEmployeeData([]); // Clear previous results
 
-      const response = await fetch(`http://localhost:8080/api/v1/admin/getEmp/${searchInput}`);
+      const response = await fetch(`http://localhost:8080/api/v1/admin/getEmp/${searchInput}`,{
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization" : localStorage.getItem("jwtToken")
+        }
+      });
 
       if (!response.ok) {
         throw new Error("No employees found or error in fetching data");

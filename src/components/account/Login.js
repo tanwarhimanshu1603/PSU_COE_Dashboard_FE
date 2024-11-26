@@ -18,6 +18,8 @@ const Login = () => {
         // Check if employee is logged in
         const empToken = localStorage.getItem("empToken");
         if(empToken)navigate("/employeeDashboard");
+      }else{
+        navigate("/adminDashboard");
       }
     },[localStorage.getItem("jwtToken")]);
     
