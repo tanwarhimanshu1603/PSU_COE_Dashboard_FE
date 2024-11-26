@@ -16,11 +16,11 @@
     --tran-04: all 0.3s ease;
     --tran-05: all 0.3s ease;
   }
-/* 
+
   ::selection {
     background-color: var(--primary-color);
     color: #fff;
-  } */
+  }
 
   .sidebar {
     /* position: fixed;
