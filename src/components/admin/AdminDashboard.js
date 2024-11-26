@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AdminDashboard = () => {
@@ -8,14 +8,22 @@ const AdminDashboard = () => {
 
   const navigate = useNavigate(); // Initialize useNavigate
 
-  const jwtToken = localStorage.getItem("jwtToken");
-    // console.log(empId);
-    
+  
+
+  useEffect(() => {
+    const jwtToken = localStorage.getItem("jwtToken");
     if (!jwtToken) {
-      // If no empId is found, redirect to login page
-      window.location.href = "/";
+      // If no adminToken is found
+      // Check if employee is logged in
+      const empToken = localStorage.getItem("empToken");
+      if(empToken)navigate("/employeeDashboard");
+      else window.location.href = "/";
       return;
     }
+  },[]);
+    // console.log(empId);
+    
+    
 
     
   const fetchEmployeeData = async () => {

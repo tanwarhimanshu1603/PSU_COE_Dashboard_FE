@@ -10,6 +10,16 @@ const Login = () => {
     const [loading, setLoading] = useState(false);
     const [welcomeMessage, setWelcomeMessage] = useState("Welcome to Professional Service Unit");
     const navigate = useNavigate(); // Initialize useNavigate
+
+    useEffect(() => {
+      const jwtToken = localStorage.getItem("jwtToken");
+      if (!jwtToken) {
+        // If no adminToken is found
+        // Check if employee is logged in
+        const empToken = localStorage.getItem("empToken");
+        if(empToken)navigate("/employeeDashboard");
+      }
+    },[localStorage.getItem("jwtToken")]);
     
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -105,8 +115,8 @@ const Login = () => {
                                 </button> 
                             </form>
                             <div className="register-option">
-                                Not Registered Yet? <span>Register </span>{error && <span style={{ color: "red", margin: 0, padding: "7px", textAlign: "center" }}>{error}</span>}
-                            </div>
+                                Not Registered Yet? <span onClick={() => navigate("/employeeRegister")}>Register </span>{error && <span style={{ color: "red", margin: 0, padding: "7px", textAlign: "center" }}>{error}</span>}
+                            </div> 
                         </div>
 
                     </div>

@@ -55,6 +55,10 @@ const EmployeeDashboard = () => {
     navigate("/"); // Redirect to the homepage
   };
 
+  const handleUpdate = () => {
+    navigate("/updateEmployee", {state: {employee}}); // Redirect to the homepage
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -68,20 +72,39 @@ const EmployeeDashboard = () => {
       {/* Logout */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <h1>Employee Dashboard</h1>
-        <button
-          onClick={handleLogout}
-          style={{
-            padding: "10px 20px",
-            fontSize: "16px",
-            backgroundColor: "#f44336",
-            color: "#fff",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
-        >
-          Logout
-        </button>
+        <div>
+          <button
+            onClick={handleUpdate}
+            style={{
+              margin: "5px",
+              padding: "10px 20px",
+              fontSize: "16px",
+              backgroundColor: "#cea05c",
+              color: "#fff",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+          >
+            Update
+          </button>
+          <button
+            onClick={handleLogout}
+            style={{
+              margin: "5px",
+              padding: "10px 20px",
+              fontSize: "16px",
+              backgroundColor: "#f44336",
+              color: "#fff",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+          >
+            Logout
+          </button>
+        </div>
+        
       </div>
       <div
               style={{
