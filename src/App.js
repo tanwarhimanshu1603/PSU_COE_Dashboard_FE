@@ -13,7 +13,9 @@ function App() {
       {/* Landing Page */}
       <Routes>
         <Route path='/' element={<Login />}/>
-        {/* <Route path='/' element={<AdminDashboard />}/> */}
+        {/* <Route path='/' element={<AdminNavBar />}/> */}
+        <Route path='/admin/*' element={<AdminDashboard />}/>
+        {/* <Route path='/search' element={<Search />}/> */}
         <Route path='/employeeRegister' element={<EmployeeRegister />}/>
         <Route path='/adminDashboard' element={<AdminDashboard />}/>
         <Route path='/employeeDashboard' element={<EmployeeDashboard />}/>

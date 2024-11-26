@@ -24,7 +24,6 @@ const EmployeeDashboard = () => {
     // Fetch employee details using empId
     const fetchEmployeeDetails = async () => {
       try {
-        // const response = await fetch(`http://localhost:8080/api/v1/employee/getById/${empId}`);
         const response = await fetch(`http://localhost:8080/api/v1/employee/getById/${empId}`, {
           method: 'GET',
           headers: {
@@ -54,6 +53,7 @@ const EmployeeDashboard = () => {
   const handleLogout = () => {
     localStorage.removeItem("empId"); // Remove empId from localStorage
     localStorage.removeItem("empToken"); // Remove login status
+    localStorage.removeItem("isLoggedIn");
     navigate("/"); // Redirect to the homepage
   };
 

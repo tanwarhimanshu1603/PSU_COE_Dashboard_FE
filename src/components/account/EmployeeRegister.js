@@ -6,24 +6,24 @@ const EmployeeRegister = () => {
     empEmail: "",
     empPasswd: "",
     empId: "",
-    empName: "",
-    supervisorName: "",
-    amdocsExperience: "",
-    totalExperience: "",
-    amdocsJourney: "",
-    functionalKnowledge: "",
-    primaryTechSkill: "",
-    primaryProductSubdomain: "",
-    secondaryTechSkill: "",
-    secondaryProduct: "",
-    devOpsKnowledge: "",
-    mentoringAbility: false,
-    explorationInterest: false,
-    contributedToDesign: false,
-    engagementActivityContribution: false,
-    presentationSkills: "",
-    hobbiesSports: "",
-    additionalInfo: "",
+    // empName: "",
+    // supervisorName: "",
+    // amdocsExperience: "",
+    // totalExperience: "",
+    // amdocsJourney: "",
+    // functionalKnowledge: "",
+    // primaryTechSkill: "",
+    // primaryProductSubdomain: "",
+    // secondaryTechSkill: "",
+    // secondaryProduct: "",
+    // devOpsKnowledge: "",
+    // mentoringAbility: false,
+    // explorationInterest: false,
+    // contributedToDesign: false,
+    // engagementActivityContribution: false,
+    // presentationSkills: "",
+    // hobbiesSports: "",
+    // additionalInfo: "",
   });
 
   const [successMessage, setSuccessMessage] = useState("");
@@ -60,25 +60,7 @@ const EmployeeRegister = () => {
       setFormData({
         empEmail: "",
         empPasswd: "",
-        empId: "",
-        empName: "",
-        supervisorName: "",
-        amdocsExperience: "",
-        totalExperience: "",
-        amdocsJourney: "",
-        functionalKnowledge: "",
-        primaryTechSkill: "",
-        primaryProductSubdomain: "",
-        secondaryTechSkill: "",
-        secondaryProduct: "",
-        devOpsKnowledge: "",
-        mentoringAbility: false,
-        explorationInterest: false,
-        contributedToDesign: false,
-        engagementActivityContribution: false,
-        presentationSkills: "",
-        hobbiesSports: "",
-        additionalInfo: "",
+        empId: ""
       });
 
       localStorage.setItem("empId", formData.empId);
@@ -127,240 +109,6 @@ const EmployeeRegister = () => {
               type="text"
               name="empId"
               value={formData.empId}
-              onChange={handleChange}
-              required
-              style={{ marginLeft: "10px", padding: "5px", width: "300px" }}
-            />
-          </label>
-        </div>
-        <div style={{ marginBottom: "20px" }}>
-          <label>
-            Name:
-            <input
-              type="text"
-              name="empName"
-              value={formData.empName}
-              onChange={handleChange}
-              required
-              style={{ marginLeft: "10px", padding: "5px", width: "300px" }}
-            />
-          </label>
-        </div>
-        <div style={{ marginBottom: "20px" }}>
-          <label>
-            Supervisor Name:
-            <input
-              type="text"
-              name="supervisorName"
-              value={formData.supervisorName}
-              onChange={handleChange}
-              required
-              style={{ marginLeft: "10px", padding: "5px", width: "300px" }}
-            />
-          </label>
-        </div>
-        <div style={{ marginBottom: "20px" }}>
-          <label>
-            Amdocs Experience:
-            <input
-              type="text"
-              name="amdocsExperience"
-              value={formData.amdocsExperience}
-              onChange={handleChange}
-              required
-              style={{ marginLeft: "10px", padding: "5px", width: "300px" }}
-            />
-          </label>
-        </div>
-        <div style={{ marginBottom: "20px" }}>
-          <label>
-            Total Experience:
-            <input
-              type="text"
-              name="totalExperience"
-              value={formData.totalExperience}
-              onChange={handleChange}
-              required
-              style={{ marginLeft: "10px", padding: "5px", width: "300px" }}
-            />
-          </label>
-        </div>
-        <div style={{ marginBottom: "20px" }}>
-          <label>
-            Amdocs Journey:
-            <input
-              type="text"
-              name="amdocsJourney"
-              value={formData.amdocsJourney}
-              onChange={handleChange}
-              required
-              style={{ marginLeft: "10px", padding: "5px", width: "300px" }}
-            />
-          </label>
-        </div>
-        <div style={{ marginBottom: "20px" }}>
-          <label>
-            Functional Knowledge:
-            <input
-              type="text"
-              name="functionalKnowledge"
-              value={formData.functionalKnowledge}
-              onChange={handleChange}
-              required
-              style={{ marginLeft: "10px", padding: "5px", width: "300px" }}
-            />
-          </label>
-        </div>
-        <div style={{ marginBottom: "20px" }}>
-          <label>
-            Primary Tech Skill:
-            <input
-              type="text"
-              name="primaryTechSkill"
-              value={formData.primaryTechSkill}
-              onChange={handleChange}
-              required
-              style={{ marginLeft: "10px", padding: "5px", width: "300px" }}
-            />
-          </label>
-        </div>
-        <div style={{ marginBottom: "20px" }}>
-          <label>
-            Primary Product/SubDomain:
-            <input
-              type="text"
-              name="primaryProductSubdomain"
-              value={formData.primaryProductSubdomain}
-              onChange={handleChange}
-              required
-              style={{ marginLeft: "10px", padding: "5px", width: "300px" }}
-            />
-          </label>
-        </div>
-        <div style={{ marginBottom: "20px" }}>
-          <label>
-            Secondary Tech Skills:
-            <input
-              type="text"
-              name="secondaryTechSkill"
-              value={formData.secondaryTechSkill}
-              onChange={handleChange}
-              required
-              style={{ marginLeft: "10px", padding: "5px", width: "300px" }}
-            />
-          </label>
-        </div>
-        <div style={{ marginBottom: "20px" }}>
-          <label>
-            Secondary Product:
-            <input
-              type="text"
-              name="secondaryProduct"
-              value={formData.secondaryProduct}
-              onChange={handleChange}
-              required
-              style={{ marginLeft: "10px", padding: "5px", width: "300px" }}
-            />
-          </label>
-        </div>
-        <div style={{ marginBottom: "20px" }}>
-          <label>
-            Devops Knowledge:
-            <input
-              type="text"
-              name="devOpsKnowledge"
-              value={formData.devOpsKnowledge}
-              onChange={handleChange}
-              required
-              style={{ marginLeft: "10px", padding: "5px", width: "300px" }}
-            />
-          </label>
-        </div>
-        {/* Repeat similar blocks for other fields */}
-
-        <div style={{ marginBottom: "20px" }}>
-          <label>
-            Mentoring Ability:
-            <input
-              type="checkbox"
-              name="mentoringAbility"
-              checked={formData.mentoringAbility}
-              onChange={handleChange}
-              style={{ marginLeft: "10px" }}
-            />
-          </label>
-        </div>
-        <div style={{ marginBottom: "20px" }}>
-          <label>
-            Exploration Interest:
-            <input
-              type="checkbox"
-              name="explorationInterest"
-              checked={formData.explorationInterest}
-              onChange={handleChange}
-              style={{ marginLeft: "10px" }}
-            />
-          </label>
-        </div>
-        <div style={{ marginBottom: "20px" }}>
-          <label>
-            Contributed to Design:
-            <input
-              type="checkbox"
-              name="contributedToDesign"
-              checked={formData.contributedToDesign}
-              onChange={handleChange}
-              style={{ marginLeft: "10px" }}
-            />
-          </label>
-        </div>
-        <div style={{ marginBottom: "20px" }}>
-          <label>
-            Contribution to Engagement Activities:
-            <input
-              type="checkbox"
-              name="engagementActivityContribution"
-              checked={formData.engagementActivityContribution}
-              onChange={handleChange}
-              style={{ marginLeft: "10px" }}
-            />
-          </label>
-        </div>
-        <div style={{ marginBottom: "20px" }}>
-          <label>
-            Presentation Skills:
-            <input
-              type="number"
-              name="presentationSkills"
-              value={formData.presentationSkills}
-              onChange={handleChange}
-              required
-              min="1"
-              max="5"
-              style={{ marginLeft: "10px", padding: "5px", width: "50px" }}
-            />
-          </label>
-        </div>
-        <div style={{ marginBottom: "20px" }}>
-          <label>
-            Hobbies:
-            <input
-              type="text"
-              name="hobbiesSports"
-              value={formData.hobbiesSports}
-              onChange={handleChange}
-              required
-              style={{ marginLeft: "10px", padding: "5px", width: "300px" }}
-            />
-          </label>
-        </div>
-        <div style={{ marginBottom: "20px" }}>
-          <label>
-            Additional Info:
-            <input
-              type="text"
-              name="additionalInfo"
-              value={formData.additionalInfo}
               onChange={handleChange}
               required
               style={{ marginLeft: "10px", padding: "5px", width: "300px" }}
