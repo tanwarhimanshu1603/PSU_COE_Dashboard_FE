@@ -1,23 +1,25 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Landing from './components/layout/Landing';
-import AdminLogin from './components/admin/AdminLogin';
-import EmployeeLogin from './components/employee/EmployeeLogin';
-import EmployeeRegister from './components/employee/EmployeeRegister';
+import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import AdminDashboard from './components/admin/AdminDashboard';
 import EmployeeDashboard from './components/employee/EmployeeDashboard';
-
+import EmployeeRegister from './components/account/EmployeeRegister'
+import Login from './components/account/Login';
+import UpdateEmployee from './components/employee/UpdateEmployee';
+import { useEffect } from 'react';
 function App() {
-  return (
+
+  return ( 
     <Router>
       {/* Landing Page */}
       <Routes>
-        <Route path='/' element={<Landing />}/>
-        <Route path='/adminLogin' element={<AdminLogin />}/>
-        <Route path='/employeeLogin' element={<EmployeeLogin />}/>
+        <Route path='/' element={<Login />}/>
+        {/* <Route path='/' element={<AdminNavBar />}/> */}
+        <Route path='/admin/*' element={<AdminDashboard />}/>
+        {/* <Route path='/search' element={<Search />}/> */}
         <Route path='/employeeRegister' element={<EmployeeRegister />}/>
         <Route path='/adminDashboard' element={<AdminDashboard />}/>
         <Route path='/employeeDashboard' element={<EmployeeDashboard />}/>
+        <Route path='/updateEmployee' element={<UpdateEmployee />}/>
       </Routes>
     </Router>
   );

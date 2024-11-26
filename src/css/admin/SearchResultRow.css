@@ -1,0 +1,96 @@
+.search-result-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(221, 221, 221);
+    padding: 8px;
+    border-radius: 10px;
+    margin: 5px;
+    cursor: pointer;
+   
+
+}
+.search-result-row:hover{
+    background-color: #c9c9c9;
+    
+}
+.employee-basic-info-container{
+    display: flex;
+    align-items: center;
+}
+.employee-basic-info{
+    margin-left: 10px;
+}
+.employee-image{
+    border-radius: 50%;
+}
+.employee-name{
+    font-weight: bolder;
+    font-size: larger;
+}
+.employee-role{
+    font-size: smaller;
+}
+.icon{
+    margin-right: 10px;
+}
+
+.open__submit {
+	background: #fff;
+	font-size: 14px;
+	/* margin-top: 30px; */
+	padding: 16px 20px;
+	border-radius: 26px;
+	border: 1px solid #D4D3E8;
+	text-transform: uppercase;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	width: 20%;
+	color: #4C489D;
+	box-shadow: 0px 2px 2px #5C5696;
+	cursor: pointer;
+	transition: .2s;
+}
+
+.open__submit:active,
+.open__submit:focus,
+.open__submit:hover {
+	border-color: #6A679E;
+	outline: none;
+}
+.button__icon {
+	font-size: 24px;
+	margin-left: auto;
+	color: #7875B5;
+}
+.button__text{
+    margin:auto
+}
+
+@media  (max-width: 700px) {
+    .search-result-row{
+        position: relative;
+    }
+    .search-result-row{
+        flex-direction: column;
+    
+    }
+    .employee-id-container{
+        margin: 10px;
+    }
+    .open__submit{
+        position: absolute;
+        right: 0;
+    }
+    /* .button__text{
+        display: none;
+    } */
+}
+
+@media  (max-width: 650px) {
+     
+    .button__text{
+        display: none;
+    }
+}

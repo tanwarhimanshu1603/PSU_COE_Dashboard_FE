@@ -1,61 +1,195 @@
 .login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: aquamarine;
-    height: 99vh;
-    background-image: url('../static/images/bg.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: white;
-  }
-  h2{
-    
-    margin: auto;
-  }
-  .login-form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 300px;
-    background-color: rgb(0, 0, 0,0.7);
-    margin-top: 4rem;
-    padding: 2rem;
-    border-radius: 5px;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
+  width: 98vw;
+  height: 97vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
-  }
+.content-container {
+  width: 45%;
+  height: 90%;
+  padding-top: 30px;
+}
+
+.welcome-message {
+  text-align: center;
+  font-size: xx-large;
+  margin-bottom: 25px;
+  margin-top: 8px;
+}
+
+.info-box {
+  width: 90%;
+  padding: 4px;
+  border-left: 3px solid rgb(103, 96, 96);
+  height: 100px;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.info-box:hover {
+  background-color: rgb(232, 231, 231);
+  cursor: default;
+}
+
+.info-heading {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.info {
+  margin-left: 12px;
+  color: gray;
+}
+
+.form-container {
+  width: 45%;
+  height: 90%;
+
+  border-radius: 15px;
+  border: 1px solid gray
+}
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+.company-logo {
+  display: flex;
+  /* or use text-align/line-height */
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  /* Set height as needed */
+  margin-top: 20px;
+}
+
+.company-logo-img {
+  max-width: 50%;
+  /* Optional: ensures the image is responsive */
+  height: auto;
+  /* Maintain aspect ratio */
+}
+
+.login-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.screen {
+  /* background: linear-gradient(90deg, #5D54A4, #7C78B8);		 */
+  position: relative;
+  height: 100%;
+  width: 90%;
+  border-radius: 20px;
+  border: 1px dashed gray;
+}
+
+.screen__content {
+  z-index: 1;
+  position: relative;
+  height: 100%;
+}
+
+
+.login {
+  padding: 30px;
+  padding-top: 15px;
   
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
+}
+
+.login__field {
+  padding: 20px 0px;
+  position: relative;
+}
+
+.login__icon {
+  position: absolute;
+  top: 30px;
+  color: #7875B5;
+}
+
+.login__input {
+  border: none;
+  border-bottom: 2px solid #D1D1D4;
+  background: none;
+  padding: 10px;
+  padding-left: 24px;
+  font-weight: 700;
+  width: 75%;
+  transition: .2s;
+}
+
+.login__input:active,
+.login__input:focus,
+.login__input:hover {
+  outline: none;
+  border-bottom-color: #6A679E;
+}
+
+.login__submit {
+  background: #fff;
+  font-size: 14px;
+  margin-top: 12px;
+  padding: 10px 20px;
+  border-radius: 26px;
+  border: 1px solid #D4D3E8;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  width: 25%;
+  color: #4C489D;
+  box-shadow: 0px 2px 2px #5C5696;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.login__submit:active,
+.login__submit:focus,
+.login__submit:hover {
+  border-color: #6A679E;
+  outline: none;
+}
+
+.button__icon {
+  font-size: 24px;
+  margin-left: auto;
+  color: #7875B5;
+}
+
+
+.register-option{
+  padding: 9px;
+  margin-left: 22px;
   
-  input[type='text'],
-  input[type='email'],
-  input[type='password'] {
-    width: 141%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+}
+
+.register-option span{
+  cursor: pointer;
+  color: blue;
+}
+
+.loading-gif{
+  width: 16px;
+  height: 16px;
+  margin-left: 15px;
+}
+
+
+@media (max-width: 750px) {
+  /* Styles for devices with a width of 600px or less */
+  .login-container{
+    width: 96vw;
+    flex-direction: column;
   }
-   
-.btn{
-    margin-right: 2px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin: auto;
+  .content-container{
+    width: 90%;
   }
-  
-  a{
-    display: inline;
-    margin-left: 2px;
+  .form-container{
+    width: 83%;
+    margin-top: 50px;
   }
+}
