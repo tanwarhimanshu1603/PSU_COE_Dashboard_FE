@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import '../../css/Login.css'
 import Logo from '../../static/images/amdocs_logo.png'
 import 'font-awesome/css/font-awesome.min.css'
+import EmployeeRegister from '../account/EmployeeRegister'
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -10,9 +12,20 @@ const Login = () => {
     const [loading, setLoading] = useState(false);
     const [welcomeMessage, setWelcomeMessage] = useState("Welcome to Professional Service Unit");
     const navigate = useNavigate(); // Initialize useNavigate
-    
+    const hashText = async (text) => {
+        const encoder = new TextEncoder(); // Converts the string to a Uint8Array
+        const data = encoder.encode(text); // Encode the text
+      
+        const hashBuffer = await crypto.subtle.digest('SHA-256', data); // Compute the hash
+        const hashArray = Array.from(new Uint8Array(hashBuffer)); // Convert buffer to byte array
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('').toString(); // Convert bytes to hex
+        return hashHex; // Return the hash as a hex string
+      };
     const handleSubmit = async (e) => {
+        
         e.preventDefault();
+        const hashedPassword= await hashText(password)
+        console.log(hashedPassword)
         setError(""); // Clear previous error
         setLoading(true);
         try {
@@ -22,7 +35,7 @@ const Login = () => {
               headers: {
                 'Content-Type': 'application/json',
               },
-              body: JSON.stringify({ adminEmail:email, adminPassword:password }),
+              body: JSON.stringify({ adminEmail:email, adminPassword:hashedPassword }),
             });
         
             if (adminResponse.ok) {
@@ -30,7 +43,7 @@ const Login = () => {
               setLoading(false);
               const jwtToken = await adminResponse.text();
               localStorage.setItem("jwtToken",jwtToken);
-              navigate('/adminDashboard');
+              navigate('/admin');
 
               return;
             }
@@ -40,6 +53,7 @@ const Login = () => {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
+                
               },
               body: JSON.stringify({empEmail: email, empPasswd:password }),
             });
@@ -72,12 +86,12 @@ const Login = () => {
                     <div className="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Moiores itaque dolore tempore fugiat! Modi error id sapiente us?</div>
                 </div>
                 <div className="info-box">
-                    <h3 className="info-heading">It is good</h3>
+                    <h3 className="info-heading">Efficient Management</h3>
                     <div className="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Moiores itaque dolore tempore fugiat! Modi error id sapiente us?</div>
                 </div>
                 
                 <div className="info-box">
-                    <h3 className="info-heading">It helps Employees</h3>
+                    <h3 className="info-heading">Account Centric</h3>
                     <div className="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Moiores itaque dolore tempore fugiat! Modi error id sapiente us?</div>
                 </div>
             </div>
@@ -105,7 +119,7 @@ const Login = () => {
                                 </button> 
                             </form>
                             <div className="register-option">
-                                Not Registered Yet? <span>Register </span>{error && <span style={{ color: "red", margin: 0, padding: "7px", textAlign: "center" }}>{error}</span>}
+                                Not Registered Yet?<Link to="/employeeRegister"> <span>Register </span></Link>{error && <span style={{ color: "red", margin: 0, padding: "7px", textAlign: "center" }}>{error}</span>}
                             </div>
                         </div>
 

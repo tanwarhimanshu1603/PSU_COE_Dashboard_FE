@@ -133,7 +133,7 @@ const EmployeeRegister = () => {
             />
           </label>
         </div>
-        <div style={{ marginBottom: "20px" }}>
+        {/* <div style={{ marginBottom: "20px" }}>
           <label>
             Name:
             <input
@@ -275,9 +275,13 @@ const EmployeeRegister = () => {
               style={{ marginLeft: "10px", padding: "5px", width: "300px" }}
             />
           </label>
-        </div>
-        {/* Repeat similar blocks for other fields */}
+        </div> */}
 
+
+
+
+        {/* Repeat similar blocks for other fields */}
+{/* 
         <div style={{ marginBottom: "20px" }}>
           <label>
             Mentoring Ability:
@@ -366,7 +370,7 @@ const EmployeeRegister = () => {
               style={{ marginLeft: "10px", padding: "5px", width: "300px" }}
             />
           </label>
-        </div>
+        </div> */}
         <button
           type="submit"
           style={{
