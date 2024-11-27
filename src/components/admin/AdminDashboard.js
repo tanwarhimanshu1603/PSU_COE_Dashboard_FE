@@ -1,72 +1,27 @@
 import React from "react";
-import { BrowserRouter as  Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AdminNavBar from "./AdminNavBar";
 import '../../css/admin/AdminDashboard.css'
 import Search from "./Search";
-import Login from "../account/Login";
-import EmployeeDashboard from "../employee/EmployeeDashboard";
+import ProfilePage from "./ProfilePage";
 const AdminDashboard = () => {
-  // const [searchInput, setSearchInput] = useState("");
-  // const [employeeData, setEmployeeData] = useState([]);
-  // const [error, setError] = useState("");
-
 
   const jwtToken = localStorage.getItem("jwtToken");
-    // console.log(empId);
-    
-    if (!jwtToken) {
-      // If no empId is found, redirect to login page
-      window.location.href = "/";
-      return;
-    }
-
-    
-  // const fetchEmployeeData = async () => {
-  //   try {
-  //     setError(""); // Clear previous errors
-  //     setEmployeeData([]); // Clear previous results
-
-  //     const response = await fetch(`http://localhost:8080/api/v1/admin/getEmp/${searchInput}`);
-
-  //     if (!response.ok) {
-  //       throw new Error("No employees found or error in fetching data");
-  //     }
-
-  //     const data = await response.json();
-
-  //     if (!Array.isArray(data)) {
-  //       throw new Error("Invalid response format: Expected an array");
-  //     }
-
-  //     setEmployeeData(data);
-  //   } catch (err) {
-  //     setError(err.message);
-  //   }
-  // };
-
-  // const handleSearch = (e) => {
-  //   e.preventDefault();
-  //   if (searchInput.trim()) {
-  //     fetchEmployeeData();
-  //   } else {
-  //     setError("Please enter an Employee ID or Name");
-  //   }
-  // };
-
-
+  if (!jwtToken) {
+    window.location.href = "/";
+    return;
+  }
 
   return (
-    
-     <div className="admin-dashboard">
-         <AdminNavBar/>
-         
-         <Routes>
-          {/* <Route path="search" element={<Search/>} /> */}
-          <Route path="profile/:empId" element={<EmployeeDashboard/>} />
-          <Route path="manage" element={<Search/>} />
-         </Routes>
-     </div>
-     
+
+    <div className="admin-dashboard">
+      <AdminNavBar />
+      <Routes>
+        <Route path="admin/profile/:empId" element={<ProfilePage />} />
+        <Route path="manage" element={<Search />} />
+      </Routes>
+    </div>
+
   );
 };
 

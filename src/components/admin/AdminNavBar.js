@@ -5,8 +5,11 @@ import { useNavigate } from "react-router-dom";
 const AdminNavBar = () => {
     const navigate = useNavigate(); 
     const handleLogout = () => {
-        localStorage.removeItem("jwtToken"); // Remove login status
-        navigate("/"); // Redirect to the login page
+        if(window.confirm("Are you sure you want to logout?")){
+            localStorage.removeItem("jwtToken"); // Remove login status
+            navigate("/"); // Redirect to the login page
+        }
+        
       };
   return (
     <nav class="sidebar">

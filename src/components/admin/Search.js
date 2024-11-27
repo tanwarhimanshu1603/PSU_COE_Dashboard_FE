@@ -11,37 +11,7 @@ const Search = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const jwtToken = localStorage.getItem("jwtToken")
-  // const fetchEmployeeData = async () => {
-  //   try {
-  //     setError(""); // Clear previous errors
-  //     setEmployeeData([]); // Clear previous results
 
-  //     const response = await fetch(`http://localhost:8080/api/v1/admin/getEmp/${searchInput}`, {
-  //       // const response = await fetch(`http://localhost:8080/api/v1/admin/getAllEmp`, {
-  //       method: 'GET', // or 'POST', etc.
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         'Authorization': `${jwtToken}`, // Include the token
-  //       },
-  //     });
-
-  //     if (!response.ok) {
-  //       throw new Error("No employees found or error in fetching data");
-  //     }
-
-  //     const data = await response.json();
-
-  //     if (!Array.isArray(data)) {
-  //       throw new Error("Invalid response format: Expected an array");
-  //     }
-
-  //     setEmployeeData(data);
-  //     console.log(employeeData)
-  //   } catch (err) {
-  //     setError(err.message);
-  //     console.log(error)
-  //   }
-  // };
   const debouncedSearch = debounce((query) => {
     const lowercasedQuery = query.toLowerCase();
     const filtered = employeeData.filter((employee) =>
@@ -115,7 +85,7 @@ const Search = () => {
           <div class="search-result-row" key={index}>
             <div class="employee-basic-info-container">
               <div class="employee-profile-pic">
-                <img class="employee-image" src="https://i.etsystatic.com/40317824/r/il/339134/4827441773/il_fullxfull.4827441773_887m.jpg" alt="" height="60px" />
+                <img class="employee-image" src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001882.png" alt="" height="60px" />
               </div>
               <div class="employee-basic-info">
                 <div class="employee-name">{employee.empName}</div>
@@ -126,7 +96,7 @@ const Search = () => {
               <div class="employee-id"><span>ID : </span>{employee.empId}</div>
               <div class="employee-email"><i class="icon fas fa-user"></i>{employee.empEmail}</div>
             </div>
-            <Link to={`profile/${employee.empId}`}>
+            <Link to={`/admin/profile/${employee.empId}`}>
               <button class="button open__submit">
                 <span class="button__text">Manage</span>
                 <i class="button__icon fas fa-chevron-right"></i>
