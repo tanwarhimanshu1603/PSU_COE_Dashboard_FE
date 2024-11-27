@@ -1,7 +1,7 @@
 .admin-dashboard {
     display: flex;
     min-height: 100vh;
-    background-color: #e7e7e7;
+    background-color: #f8f8f8;
     transition: all 0.3s ease;
 }
 

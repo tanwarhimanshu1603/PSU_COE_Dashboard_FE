@@ -113,9 +113,9 @@ const Login = () => {
                                     <input type="password" className="login__input" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                                 </div>
                                 <button className="button login__submit" type="submit">
-                                    <span className="button__text">Log In Now  </span>
+                                    <span className="button__text">Log In</span>
                                     {loading && <i className="fa fa-spinner fa-spin" style={{marginLeft:"5px"}}></i>}
-                                    <i className="button__icon fas fa-chevron-right"></i>
+                                    {/* <i className="button__icon fas fa-chevron-right"></i> */}
                                 </button> 
                             </form>
                             <div className="register-option">

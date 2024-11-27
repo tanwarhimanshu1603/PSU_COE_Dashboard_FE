@@ -140,7 +140,7 @@
   font-weight: 700;
   display: flex;
   align-items: center;
-  width: 52%;
+  width: 22%;
   color: #4C489D;
   box-shadow: 0px 2px 2px #5C5696;
   cursor: pointer;
@@ -154,11 +154,11 @@
   outline: none;
 }
 
-.button__icon {
+/* .button__icon {
   font-size: 24px;
   margin-left: auto;
   color: #7875B5;
-}
+} */
 
 
 .register-option{

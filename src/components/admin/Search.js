@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom";
  
-
+import { Link } from 'react-router-dom';
 import '../../css/admin/Search.css'
 import '../../css/admin/SearchResultRow.css'
 const Search = () => {
@@ -93,14 +93,36 @@ const Search = () => {
   }, [searchInput]);  // Run every time searchInput changes
   return (
     <div class="search-container">
-      <div style={{ position: "sticky", top: "0", backgroundColor: "white", height: "137px" }}>
-        <h1 style={{ padding: "5px", position: "sticky" }}>Find Employees</h1>
+      <div style={{ position: "sticky", top: "0", backgroundColor: "white", height: "137px",display:"flex",alignItems:"center" }}>
+        {/* <h1 style={{ padding: "5px", position: "sticky", marginLeft: "24px" }}>Find Employees</h1> */}
         <div class="search-box">
-          <i class='bx bx-search icon'></i>
-          <input type="text" placeholder="Search by Employee ID or name" onChange={(e) => setSearchInput(e.target.value)} onKeyUp={handleSearch} />
+          
+          <input type="text" placeholder="Search by ID or name" onChange={(e) => setSearchInput(e.target.value)} onKeyUp={handleSearch} />
+          <button id='search-button' onClick={handleSearch}><i class='bx bx-search icon'></i></button>
         </div>
       </div>
       <div class="search-result-container">
+        {/* <div class="search-result-row">
+          <div class="employee-basic-info-container">
+            <div class="employee-profile-pic">
+              <img class="employee-image" src="https://i.etsystatic.com/40317824/r/il/339134/4827441773/il_fullxfull.4827441773_887m.jpg" alt="" height="60px" />
+            </div>
+            <div class="employee-basic-info">
+              <div class="employee-name">Vikrant kumar</div>
+              <div class="employee-role">Software Developer</div>
+            </div>
+          </div>
+          <div class="employee-id-container">
+            <div class="employee-id"><span>ID : </span>206311</div>
+            <div class="employee-email"><i class="icon fas fa-user"></i>vikranku@amdocs.com</div>
+          </div>
+          <Link to={`profile/${123}`}>
+          <button class="button open__submit">
+            <span class="button__text">Manage</span>
+            <i class="button__icon fas fa-chevron-right"></i>
+          </button>
+          </Link>
+        </div> */}
         {/* <div class="search-result-row">
           <div class="employee-basic-info-container">
             <div class="employee-profile-pic">
@@ -136,12 +158,12 @@ const Search = () => {
               <div class="employee-id"><span>ID : </span>{employee.empId}</div>
               <div class="employee-email"><i class="icon fas fa-user"></i>{employee.empEmail}</div>
             </div>
-            
+            <Link to={`profile/${employee.empId}`}>
               <button class="button open__submit">
                 <span class="button__text">Manage</span>
                 <i class="button__icon fas fa-chevron-right"></i>
               </button>
- 
+              </Link>
           </div>
         ))}
       </div>

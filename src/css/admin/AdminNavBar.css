@@ -2,13 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: outfit, sans-serif;
+    /* font-family: outfit, sans-serif; */
+    /* font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
   }
   :root {
     --body-color: #e7e7e7;
     --sidebar-color: #fff;
     --primary-color: #ff4500;
     --primary-color-light: #f6f5ff;
+    --hover-color-dark:black;
     --toggle-color: #ddd;
     --text-color: #707070;
     --tran-03: all 0.2s ease;
@@ -17,10 +19,10 @@
     --tran-05: all 0.3s ease;
   }
 
-  ::selection {
+  /* ::selection {
     background-color: var(--primary-color);
     color: #fff;
-  }
+  } */
 
   .sidebar {
     /* position: fixed;
@@ -34,6 +36,7 @@
     width: 25%;
     /* height: 100%; */
     padding: 10px 14px;
+    border-right: 1px solid rgb(193, 193, 193);
     background: var(--sidebar-color);
     transition: var(--tran-05);
     
@@ -169,7 +172,7 @@
     transition: var(--tran-03);
   }
   .sidebar li .tab:hover {
-    background-color: var(--primary-color);
+    background-color: var(--hover-color-dark);
     cursor: pointer;
   }
   .sidebar li .tab:hover .icon,
@@ -316,8 +319,7 @@
     }
     .sidebar header .image-text{
       flex-direction: row-reverse;
+      align-items: center;
     }
-    .sidebar header .logo-text{
-        margin-top: 22px;
-    }
+   
 }

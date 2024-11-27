@@ -2,16 +2,19 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: rgb(221, 221, 221);
+    background-color: rgb(255, 255, 255);
     padding: 8px;
     border-radius: 10px;
-    margin: 5px;
+    width: 75%;
+    margin: auto;
+    margin-top: 3px;
+    margin-bottom: 3px;
     cursor: pointer;
-   
+    border: 1px solid rgb(193, 193, 193);
 
 }
 .search-result-row:hover{
-    background-color: #c9c9c9;
+    background-color: #f0f0f0;
     
 }
 .employee-basic-info-container{
@@ -39,34 +42,38 @@
 	background: #fff;
 	font-size: 14px;
 	/* margin-top: 30px; */
-	padding: 16px 20px;
-	border-radius: 26px;
-	border: 1px solid #D4D3E8;
-	text-transform: uppercase;
+	padding: 5px;
+	border-radius: 5px;
+	border: 1px solid #6c6c6c;
 	font-weight: 700;
 	display: flex;
 	align-items: center;
-	width: 20%;
-	color: #4C489D;
-	box-shadow: 0px 2px 2px #5C5696;
+	width: 10%;
+    min-width: 75px;
+	color: #3a3a3a;
+	/* box-shadow: 0px 2px 2px #5C5696; */
 	cursor: pointer;
 	transition: .2s;
+    background: transparent;
 }
 
 .open__submit:active,
 .open__submit:focus,
 .open__submit:hover {
-	border-color: #6A679E;
+	border:2px solid #2c2c2c;
 	outline: none;
+    
 }
 .button__icon {
-	font-size: 24px;
-	margin-left: auto;
-	color: #7875B5;
+    font-size: 12px;
+    margin-left: auto;
+    color: #787878;
 }
 .button__text{
-    margin:auto
+    margin:auto;
+    
 }
+
 
 @media  (max-width: 700px) {
     .search-result-row{
@@ -88,9 +95,3 @@
     } */
 }
 
-@media  (max-width: 650px) {
-     
-    .button__text{
-        display: none;
-    }
-}

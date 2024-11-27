@@ -3,6 +3,8 @@ import { BrowserRouter as  Router, Routes, Route } from "react-router-dom";
 import AdminNavBar from "./AdminNavBar";
 import '../../css/admin/AdminDashboard.css'
 import Search from "./Search";
+import Login from "../account/Login";
+import EmployeeDashboard from "../employee/EmployeeDashboard";
 const AdminDashboard = () => {
   // const [searchInput, setSearchInput] = useState("");
   // const [employeeData, setEmployeeData] = useState([]);
@@ -59,7 +61,8 @@ const AdminDashboard = () => {
          <AdminNavBar/>
          
          <Routes>
-          <Route path="search" element={<Search/>} />
+          {/* <Route path="search" element={<Search/>} /> */}
+          <Route path="profile/:empId" element={<EmployeeDashboard/>} />
           <Route path="manage" element={<Search/>} />
          </Routes>
      </div>
