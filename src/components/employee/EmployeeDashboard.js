@@ -114,30 +114,6 @@ const EmployeeDashboard = () => {
       {/* Logout */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <h1>Employee Dashboard</h1>
-        <form onSubmit={handleSearch} style={{ marginBottom: "20px" }}>
-        <input
-          type="text"
-          placeholder="Enter Employee ID or Name"
-          value={searchInput}
-          onChange={(e) => setSearchInput(e.target.value)}
-          style={{
-            padding: "10px",
-            fontSize: "16px",
-            width: "300px",
-            marginRight: "10px",
-          }}
-        />
-        <button
-          type="submit"
-          style={{
-            padding: "10px 20px",
-            fontSize: "16px",
-            cursor: "pointer",
-          }}
-        >
-          Search
-        </button>
-      </form>
         <div>
           <button
             onClick={handleUpdate}

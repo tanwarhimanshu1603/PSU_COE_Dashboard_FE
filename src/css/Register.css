@@ -1,29 +1,68 @@
 .register{
-    background: -webkit-linear-gradient(left, #305c66, #ffffff);
+    /* background: -webkit-linear-gradient(left, #305c66, #ffffff); */
     width: 100%;
     height: 100vh;
     padding: 3%;
 }
 .register-left{
     text-align: center;
-    color: #fff;
+    color: #000000;
     margin-top: 4%;
 }
-.register-left input{
+/* .register-left input{
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
     width: 60%;
-    background: #E0E0E0;
+    background: #457E8B;
     font-weight: bold;
-    color: #383d41;
+    color: #ffffff;
     margin-bottom: 3%;
     cursor: pointer;
+} */
+
+.form-control{
+    border: none;
+    border-bottom: 2px solid #D1D1D4;
+    background: none;
+    padding: 10px;
+    padding-left: 24px;
+    font-weight: 700;
+    width: 75%;
+    transition: .2s;
 }
+
+.form-control:active,
+.form-control:focus,
+.form-control:hover {
+  outline: none;
+  border-bottom-color: #6A679E;
+}
+
+.register-left input{
+    background: #fff;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 26px;
+    border: 1px solid #D4D3E8;
+    text-transform: uppercase;
+    font-weight: 700;
+    align-items: center;
+    width: 35%;
+    color: #4C489D;
+    box-shadow: 0px 2px 2px #5C5696;
+    cursor: pointer;
+    transition: .2s;
+}
+
 .register-right{
-    background: #f8f9fa;
+    background: #ffffff;
     border-top-left-radius: 10% 50%;
     border-bottom-left-radius: 10% 50%;
+    /* border: 1px solid grey; */
+    box-shadow: -5px 7px 9px 0px #5C5696;
+    position: absolute;
+    right: 0;
 }
 .register-left img{
     margin-top: 15%;
@@ -47,7 +86,7 @@
     padding: 10%;
     margin-top: 10%;
 }
-.btnRegister{
+/* .btnRegister{
     float: right;
     margin-top: 10%;
     border: none;
@@ -58,7 +97,28 @@
     font-weight: 600;
     width: 50%;
     cursor: pointer;
+} */
+
+.btnRegister{
+    background: #fff;
+    float: right;
+    font-size: 14px;
+    margin-top: 10%;
+    padding: 10px 20px;
+    border-radius: 26px;
+    border: 1px solid #D4D3E8;
+    text-transform: uppercase;
+    font-weight: 700;
+    /* display: flex; */
+    align-items: center;
+    width: 30%;
+    color: #4C489D;
+    box-shadow: 0px 2px 2px #5C5696;
+    cursor: pointer;
+    transition: .2s;
+    
 }
+
 .register .nav-tabs{
     margin-top: 3%;
     border: none;
