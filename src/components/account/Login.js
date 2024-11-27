@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import '../../css/Login.css'
 import Logo from '../../static/images/amdocs_logo.png'
 import 'font-awesome/css/font-awesome.min.css'
+// import EmployeeRegister from '../account/EmployeeRegister'
 import EmployeeRegister from '../account/EmployeeRegister'
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -12,6 +13,7 @@ const Login = () => {
     const [loading, setLoading] = useState(false);
     const [welcomeMessage, setWelcomeMessage] = useState("Welcome to Professional Service Unit");
     const navigate = useNavigate(); // Initialize useNavigate
+    
     const hashText = async (text) => {
         const encoder = new TextEncoder(); // Converts the string to a Uint8Array
         const data = encoder.encode(text); // Encode the text
@@ -22,6 +24,7 @@ const Login = () => {
         return hashHex; // Return the hash as a hex string
       };
     const handleSubmit = async (e) => {
+        
         
         e.preventDefault();
         const hashedPassword= await hashText(password)
@@ -36,6 +39,7 @@ const Login = () => {
                 'Content-Type': 'application/json',
               },
               body: JSON.stringify({ adminEmail:email, adminPassword:hashedPassword }),
+              body: JSON.stringify({ adminEmail:email, adminPassword:hashedPassword }),
             });
         
             if (adminResponse.ok) {
@@ -43,6 +47,7 @@ const Login = () => {
               setLoading(false);
               const jwtToken = await adminResponse.text();
               localStorage.setItem("jwtToken",jwtToken);
+              navigate('/admin');
               navigate('/admin');
 
               return;
@@ -53,6 +58,7 @@ const Login = () => {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
+                
                 
               },
               body: JSON.stringify({empEmail: email, empPasswd:password }),

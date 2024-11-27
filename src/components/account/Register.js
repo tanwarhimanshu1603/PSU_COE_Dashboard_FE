@@ -92,25 +92,25 @@ const Register = () => {
                                 <div className="row register-form">
                                     <div className="col-md-6">
                                         <div className="form-group">
-                                            <input type="text" onChange={(e) => setFirstName(e.target.value)} className="form-control" placeholder="First Name *" value={firstName} />
+                                            <input type="text" required onChange={(e) => setFirstName(e.target.value)} className="form-control" placeholder="First Name *" value={firstName} />
                                         </div>
                                         <div className="form-group">
-                                            <input type="text" onChange={(e) => setLastName(e.target.value)} className="form-control" placeholder="Last Name *" value={lastName} />
+                                            <input type="text" required onChange={(e) => setLastName(e.target.value)} className="form-control" placeholder="Last Name *" value={lastName} />
                                         </div>
                                         <div className="form-group">
-                                            <input type="password" onChange={handleChange} name='empPasswd' className="form-control" placeholder="Password *" value={formData.empPasswd} />
+                                            <input type="password" required onChange={handleChange} name='empPasswd' className="form-control" placeholder="Password *" value={formData.empPasswd} />
                                         </div>
                                         
                                     </div>
                                     <div className="col-md-6">
                                         <div className="form-group">
-                                            <input type="email" onChange={handleChange} name='empEmail' className="form-control" placeholder="Your Email *" value={formData.empEmail} />
+                                            <input type="email" required onChange={handleChange} name='empEmail' className="form-control" placeholder="Your Email *" value={formData.empEmail} />
                                         </div>
                                         <div className="form-group">
-                                            <input type="text" onChange={handleChange} name='empId' minLength="6" maxLength="7" className="form-control" placeholder="Your Employee ID *" value={formData.empId} />
+                                            <input type="text" required onChange={handleChange} name='empId' minLength="6" maxLength="7" className="form-control" placeholder="Your Employee ID *" value={formData.empId} />
                                         </div>
                                         <div className="form-group">
-                                            <input type="password" onChange={(e) => setConfirmPassword(e.target.value)} className="form-control"  placeholder="Confirm Password *" value={confirmPassword} />
+                                            <input type="password" required onChange={(e) => setConfirmPassword(e.target.value)} className="form-control"  placeholder="Confirm Password *" value={confirmPassword} />
                                         </div>
                                         <input type="submit" className="btnRegister" value="Register"/>
                                     </div>

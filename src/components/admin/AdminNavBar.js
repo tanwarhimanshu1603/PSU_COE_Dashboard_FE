@@ -5,8 +5,11 @@ import { useNavigate } from "react-router-dom";
 const AdminNavBar = () => {
     const navigate = useNavigate(); 
     const handleLogout = () => {
-        localStorage.removeItem("jwtToken"); // Remove login status
-        navigate("/"); // Redirect to the login page
+        if(window.confirm("Are you sure you want to logout?")){
+            localStorage.removeItem("jwtToken"); // Remove login status
+            navigate("/"); // Redirect to the login page
+        }
+        
       };
   return (
     <nav class="sidebar">
@@ -18,11 +21,11 @@ const AdminNavBar = () => {
             <div class="image-text">
                 
                     <span class="image">
-                        <img src="https://i.etsystatic.com/40317824/r/il/339134/4827441773/il_fullxfull.4827441773_887m.jpg"
+                        <img src="https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg"
                             alt="" width="55px" height="55px" class="profile-pic" />
                     </span>
                     <div class="text logo-text">
-                        <span class="name">👋 Hello, Vikrant</span>
+                        <span class="name">Vikrant</span>
                         <span class="profession">Administrator</span>
                     </div>
             </div>
