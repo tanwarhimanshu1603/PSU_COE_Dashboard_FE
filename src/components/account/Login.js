@@ -119,7 +119,7 @@ const Login = () => {
                                 </button> 
                             </form>
                             <div className="register-option">
-                                Not Registered Yet?<Link to="/employeeRegister"> <span>Register </span></Link>{error && <span style={{ color: "red", margin: 0, padding: "7px", textAlign: "center" }}>{error}</span>}
+                                Not Registered Yet?<Link to="/register"> <span>Register </span></Link>{error && <span style={{ color: "red", margin: 0, padding: "7px", textAlign: "center" }}>{error}</span>}
                             </div>
                         </div>
 

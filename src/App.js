@@ -6,6 +6,7 @@ import EmployeeRegister from './components/account/EmployeeRegister'
 import Login from './components/account/Login';
 import UpdateEmployee from './components/employee/UpdateEmployee';
 import { useEffect } from 'react';
+import Register from './components/account/Register';
 function App() {
 
   return ( 
@@ -16,10 +17,11 @@ function App() {
         {/* <Route path='/' element={<AdminNavBar />}/> */}
         <Route path='/admin/*' element={<AdminDashboard />}/>
         {/* <Route path='/search' element={<Search />}/> */}
-        <Route path='/employeeRegister' element={<EmployeeRegister />}/>
+        {/* <Route path='/employeeRegister' element={<EmployeeRegister />}/> */}
         <Route path='/adminDashboard' element={<AdminDashboard />}/>
         <Route path='/employeeDashboard' element={<EmployeeDashboard />}/>
         <Route path='/updateEmployee' element={<UpdateEmployee />}/>
+        <Route path='/register' element={<Register />} />
       </Routes>
     </Router>
   );
