@@ -5,7 +5,7 @@
     background-color: rgb(255, 255, 255);
     padding: 8px;
     border-radius: 10px;
-    width: 70%;
+    width: fit-content;
     margin: auto;
     margin-top: 3px;
     margin-bottom: 3px;
@@ -80,7 +80,15 @@
     margin:auto;
     
 }
-
+@media  (max-width: 925px){
+    .search-result-row{
+        position: relative;
+    }
+    .open__submit{
+        position: absolute;
+        right: 0;
+    }
+}
 
 @media  (max-width: 700px) {
     .search-result-row{
