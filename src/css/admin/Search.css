@@ -143,6 +143,9 @@
 
 
   @media  (max-width: 700px){
+    .search-container{
+      width: 100%;
+    }
     .search-container .search-box{
       width: 90%;
     }

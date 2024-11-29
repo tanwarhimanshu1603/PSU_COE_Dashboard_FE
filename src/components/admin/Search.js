@@ -76,7 +76,7 @@ const Search = () => {
   }, [searchInput]);  // Run every time searchInput changes
   return (
     <div className="search-container">
-      <div style={{ position: "sticky", top: "0", backgroundColor: "white", height: "102px", display: "flex", alignItems: "center" ,justifyContent:"space-between",flexWrap:"wrap"}}>
+      <div style={{ position: "sticky", top: "0", backgroundColor: "white", height: "102px", display: "flex", alignItems: "center" ,justifyContent:"space-between",flexWrap:"wrap",zIndex:1}}>
         {/* <h1 style={{ padding: "5px", position: "sticky", marginLeft: "24px" }}>Find Employees</h1> */}
         <div className="search-box">
           <input type="text" placeholder="Search by ID, name or email" onChange={(e) => setSearchInput(e.target.value)} onKeyUp={handleSearch} />
@@ -123,7 +123,7 @@ const Search = () => {
           </div>
         ))}
       </div>
-    </div>
+      </div>
   )
 }
 

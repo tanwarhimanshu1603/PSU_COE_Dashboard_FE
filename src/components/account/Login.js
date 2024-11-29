@@ -45,6 +45,7 @@ const Login = () => {
             if (adminResponse.ok) {
               // If the response is OK, navigate to admin dashboard
               setLoading(false);
+              console.log(adminResponse)
               const jwtToken = await adminResponse.text();
               localStorage.setItem("jwtToken",jwtToken);
               navigate('/admin');
