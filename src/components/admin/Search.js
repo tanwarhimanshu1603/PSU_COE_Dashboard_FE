@@ -11,7 +11,7 @@ const Search = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const jwtToken = localStorage.getItem("jwtToken")
-  const [empCount,setEmpCount] = useState(0);
+  const [empCount, setEmpCount] = useState(0);
 
   const debouncedSearch = debounce((query) => {
     const lowercasedQuery = query.toLowerCase();
@@ -75,43 +75,55 @@ const Search = () => {
     }
   }, [searchInput]);  // Run every time searchInput changes
   return (
-    <div class="search-container">
-      <div style={{ position: "sticky", top: "0", backgroundColor: "white", height: "137px", display: "flex", alignItems: "center" }}>
+    <div className="search-container">
+      <div style={{ position: "sticky", top: "0", backgroundColor: "white", height: "102px", display: "flex", alignItems: "center" ,justifyContent:"space-between",flexWrap:"wrap",zIndex:1}}>
         {/* <h1 style={{ padding: "5px", position: "sticky", marginLeft: "24px" }}>Find Employees</h1> */}
-        <div class="search-box">
-
+        <div className="search-box">
           <input type="text" placeholder="Search by ID, name or email" onChange={(e) => setSearchInput(e.target.value)} onKeyUp={handleSearch} />
-          <button id='search-button' onClick={handleSearch}><i class='bx bx-search icon'></i></button>
+          <button id='search-button' onClick={handleSearch}><i className='bx bx-search icon'></i></button>
+        </div>
+
+        <div className='other-options'>
+          <div class="download-button">
+            <button>Download as </button>
+            <select id="download-format" class="dropdown">
+              <option value="csv">CSV</option>
+              <option value="pdf">PDF</option>
+            </select>
+          </div>
+          <div class="filter-button">
+            <button>Filter</button>
+          </div>
         </div>
       </div>
-      <div class="search-result-container">
-          <p style={{margin:"10px",color: ""}}>{empCount} results found!</p>
-        
+      <div className="search-result-container">
+        <p style={{ margin: "10px", color: "" }}>{empCount} results found!</p>
+
         {filteredEmployees && filteredEmployees.map((employee, index) => (
-          <div class="search-result-row" key={index}>
-            <div class="employee-basic-info-container">
-              <div class="employee-profile-pic">
-                <img class="employee-image" src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001882.png" alt="" height="60px" />
+          <div className="search-result-row" key={index}>
+            <div className="employee-basic-info-container">
+              <div className="employee-profile-pic">
+                <img className="employee-image" src="https://png.pngtree.com/png-clipart/20230927/original/pngtree-man-avatar-image-for-profile-png-image_13001882.png" alt="" height="60px" />
               </div>
-              <div class="employee-basic-info">
-                <div class="employee-name">{employee.empName}</div>
-                <div class="employee-role">Software Developer</div>
+              <div className="employee-basic-info">
+                <div className="employee-name">{employee.empName}</div>
+                <div className="employee-role">Software Developer</div>
               </div>
             </div>
-            <div class="employee-id-container">
-              <div class="employee-id"><span>ID : </span>{employee.empId}</div>
-              <div class="employee-email"><i class="icon fas fa-user"></i>{employee.empEmail}</div>
+            <div className="employee-id-container">
+              <div className="employee-id"><span>ID : </span>{employee.empId}</div>
+              <div className="employee-email"><i className="icon fas fa-user"></i>{employee.empEmail}</div>
             </div>
             <Link to={`/admin/profile/${employee.empId}`}>
-              <button class="button open__submit">
-                <span class="button__text">Manage</span>
-                <i class="button__icon fas fa-chevron-right"></i>
+              <button className="button open__submit">
+                <span className="button__text">Manage</span>
+                <i className="button__icon fas fa-chevron-right"></i>
               </button>
             </Link>
           </div>
         ))}
       </div>
-    </div>
+      </div>
   )
 }
 

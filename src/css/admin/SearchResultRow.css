@@ -5,7 +5,7 @@
     background-color: rgb(255, 255, 255);
     padding: 8px;
     border-radius: 10px;
-    width: 70%;
+    width: fit-content;
     margin: auto;
     margin-top: 3px;
     margin-bottom: 3px;
@@ -18,11 +18,11 @@
     
 }
 .employee-id-container{
-    min-width: 250px;
+    min-width: 175px;
 }
 
 .employee-basic-info{
-    min-width: 250px;
+    min-width: 175px;
 }
 .employee-basic-info-container{
     display: flex;
@@ -80,11 +80,20 @@
     margin:auto;
     
 }
-
-
-@media  (max-width: 700px) {
+/* @media  (max-width: 925px){
     .search-result-row{
         position: relative;
+    }
+    .open__submit{
+        position: absolute;
+        right: 0;
+    }
+} */
+
+@media  (max-width: 789px) {
+    .search-result-row{
+        position: relative;
+        width: 77%;
     }
     .search-result-row{
         flex-direction: column;
@@ -92,10 +101,18 @@
     }
     .employee-id-container{
         margin: 10px;
+        margin-bottom: 26px;
     }
     .open__submit{
         position: absolute;
         right: 0;
+        bottom: 0;
+        border: 0;
+        color: rgb(32, 125, 192);
+    }
+    .open__submit:hover{
+        border: 0;
+        color: blue;
     }
     /* .button__text{
         display: none;

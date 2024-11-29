@@ -12,38 +12,38 @@ const AdminNavBar = () => {
         
       };
   return (
-    <nav class="sidebar">
+    <nav className="sidebar">
         <header>
-            <div class="company-logo" >
+            <div className="company-logo" >
                 <img src="https://cdn.freelogovectors.net/wp-content/uploads/2020/08/amdocs-logo.png" height="35px"
-                    alt="" class="amdocs-logo" />
+                    alt="" className="amdocs-logo" />
             </div>
-            <div class="image-text">
+            <div className="image-text">
                 
-                    <span class="image">
+                    <span className="image">
                         <img src="https://icon-library.com/images/no-profile-picture-icon/no-profile-picture-icon-15.jpg"
-                            alt="" width="55px" height="55px" class="profile-pic" />
+                            alt="" width="55px" height="55px" className="profile-pic" />
                     </span>
-                    <div class="text logo-text">
-                        <span class="name">Vikrant</span>
-                        <span class="profession">Administrator</span>
+                    <div className="text logo-text">
+                        <span className="name">Vikrant</span>
+                        <span className="profession">Administrator</span>
                     </div>
             </div>
 
             {/* <!-- <i class='bx bx-chevron-right toggle'></i> --> */}
         </header>
-        <div class="menu-bar">
-            <div class="menu">
+        <div className="menu-bar">
+            <div className="menu">
                 {/* <li class="search-box">
                     <i class='bx bx-search icon'></i>
                     <input type="text" placeholder="Search..." />
                 </li> */}
-                <ul class="menu-links">
+                <ul className="menu-links">
                 <Link to="/admin">
-                    <li class="nav-link">
+                    <li className="nav-link">
                         <div className='tab' >
-                            <i class='bx bx-home-alt icon'></i>
-                            <span class="text nav-text">Dashboard</span>
+                            <i className='bx bx-home-alt icon'></i>
+                            <span className="text nav-text">Dashboard</span>
                         </div>
                     </li>
                     </Link>
@@ -56,29 +56,29 @@ const AdminNavBar = () => {
                     </li>
                     </Link> */}
                     <Link to="manage">
-                    <li class="nav-link">
+                    <li className="nav-link">
                     <div className='tab' >
-                            <i class='bx bx-bar-chart-alt-2 icon'></i>
-                            <span class="text nav-text">Manage Employee</span>
+                            <i className='bx bx-bar-chart-alt-2 icon'></i>
+                            <span className="text nav-text">Manage Employee</span>
                         </div>
                     </li>
                     </Link>
                     <Link to="analytics">
-                    <li class="nav-link">
+                    <li className="nav-link">
                     <div className='tab' >
-                            <i class='bx bx-pie-chart-alt icon'></i>
-                            <span class="text nav-text">Analytics</span>
+                            <i className='bx bx-pie-chart-alt icon'></i>
+                            <span className="text nav-text">Analytics</span>
                         </div>
                     </li>
                     </Link>
                 </ul>
             </div>
-            <div class="bottom-content">
+            <div className="bottom-content">
             
                 <li>
                 <div className='tab' onClick={handleLogout}>
-                        <i class='bx bx-log-out icon'></i>
-                        <span class="text nav-text">Logout</span>
+                        <i className='bx bx-log-out icon'></i>
+                        <span className="text nav-text">Logout</span>
                    </div>
                 </li>
 

@@ -45,6 +45,7 @@ const Login = () => {
             if (adminResponse.ok) {
               // If the response is OK, navigate to admin dashboard
               setLoading(false);
+              console.log(adminResponse)
               const jwtToken = await adminResponse.text();
               localStorage.setItem("jwtToken",jwtToken);
               navigate('/admin');
@@ -88,16 +89,16 @@ const Login = () => {
             <div className="content-container">
                 <h2 id="typing-effect" className="welcome-message">{welcomeMessage}</h2>
                 <div className="info-box">
-                    <h3 className="info-heading">Improved Efficiency</h3>
+                    <h5 className="info-heading">Improved Efficiency</h5>
                     <div className="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Moiores itaque dolore tempore fugiat! Modi error id sapiente us?</div>
                 </div>
                 <div className="info-box">
-                    <h3 className="info-heading">Efficient Management</h3>
+                    <h5 className="info-heading">Efficient Management</h5>
                     <div className="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Moiores itaque dolore tempore fugiat! Modi error id sapiente us?</div>
                 </div>
                 
                 <div className="info-box">
-                    <h3 className="info-heading">Account Centric</h3>
+                    <h5 className="info-heading">Account Centric</h5>
                     <div className="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Moiores itaque dolore tempore fugiat! Modi error id sapiente us?</div>
                 </div>
             </div>

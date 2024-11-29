@@ -5,6 +5,7 @@ import '../../css/admin/AdminDashboard.css'
 import Search from "./Search";
 import ProfilePage from "./ProfilePage";
 import ManageEmployee from "./ManageEmployee";
+import DashboardHome from "./DashboardHome";
 const AdminDashboard = () => {
 
   const jwtToken = localStorage.getItem("jwtToken");
@@ -18,6 +19,7 @@ const AdminDashboard = () => {
     <div className="admin-dashboard">
       <AdminNavBar />
       <Routes>
+        <Route path="/" element={<DashboardHome />} />
         <Route path="admin/profile/:empId" element={<ProfilePage />} />
         <Route path="manage" element={<Search />} />
         <Route path="employees" element={<ManageEmployee/>}/>
