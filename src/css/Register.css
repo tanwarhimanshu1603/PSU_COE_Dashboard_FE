@@ -21,7 +21,7 @@
     cursor: pointer;
 } */
 
-.form-control{
+.form-controls{
     border: none;
     border-bottom: 2px solid #D1D1D4;
     background: none;
@@ -30,13 +30,14 @@
     font-weight: 700;
     width: 75%;
     transition: .2s;
+    margin: 10px;
 }
 
-.form-control:active,
-.form-control:focus,
-.form-control:hover {
+.form-controls:active,
+.form-controls:focus,
+.form-controls:hover {
   outline: none;
-  border-bottom-color: #6A679E;
+  /* border-bottom-color: #6A679E; */
 }
 
 .register-left input{
