@@ -53,7 +53,7 @@ const DashboardHome = () => {
                 <div class="main-content">
                     <div class="card-field">
                         <div class="card-label-text">Percentage of Employees Interested in Exploring New Tools/Tech</div>
-                        <div class="card-label-value">89&</div>
+                        <div class="card-label-value">89%</div>
                     </div>
                     <div class="card-field">
                         <div class="card-label-text">Percentage of Employees Contributing to Innovation or Tool Exploration</div>
@@ -74,9 +74,6 @@ const DashboardHome = () => {
             </div>
         </div>
         <div class="long-card-containers">
-            <div class="info-cards">
-                Aakash and Vishal can mentor, have explored new tech, and contributed to design/LLD/HLD
-            </div>
             <div class="info-cards">
                 20%, 37% and 41% of Employees are specialized in Key Product/Subdomains CRM, Billing Systems, Cloud Products respectively.
             </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const EmployeeDashboard = () => {
+const Dashboard = () => {
   const [searchInput, setSearchInput] = useState("");
   const [employee, setEmployee] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -181,4 +181,4 @@ const EmployeeDashboard = () => {
   );
 };
 
-export default EmployeeDashboard;
+export default Dashboard;

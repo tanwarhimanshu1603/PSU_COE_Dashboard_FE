@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 const ProfilePage = () => {
     
     const { empId } = useParams();
-    console.log(empId)
+    // console.log(empId)
   return (
     <div>ProfilePage {empId}</div>
   )

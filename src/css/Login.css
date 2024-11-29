@@ -76,7 +76,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 10px;
+  margin: 10px 0px;
 }
 
 .screen {
@@ -101,14 +101,21 @@
   
 }
 
+.login__fields-row {
+  display: flex; /* Enables flexbox layout */
+  gap: 20px; /* Adds space between fields */
+  justify-content: space-between; /* Adjusts alignment */
+}
+
 .login__field {
   padding: 20px 0px;
+  flex: 1;
   position: relative;
 }
 
 .login__icon {
   position: absolute;
-  top: 35px;
+  top: 30px;
   color: #7875B5;
 }
 
@@ -119,7 +126,7 @@
   padding: 10px;
   padding-left: 24px;
   font-weight: 700;
-  width: 90%;
+  width: 100%;
   transition: .2s;
 }
 

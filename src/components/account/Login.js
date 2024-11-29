@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import '../../css/Login.css'
 import Logo from '../../static/images/amdocs_logo.png'
 import 'font-awesome/css/font-awesome.min.css'
-// import EmployeeRegister from '../account/EmployeeRegister'
-import EmployeeRegister from '../account/EmployeeRegister'
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
-    const [welcomeMessage, setWelcomeMessage] = useState("Welcome to Professional Service Unit");
+    // const [welcomeMessage, setWelcomeMessage] = useState("Welcome to Professional Service Unit");
     const navigate = useNavigate(); // Initialize useNavigate
     
     const hashText = async (text) => {
@@ -28,7 +26,7 @@ const Login = () => {
         
         e.preventDefault();
         const hashedPassword= await hashText(password)
-        console.log(hashedPassword)
+        // console.log(hashedPassword)
         setError(""); // Clear previous error
         setLoading(true);
         try {
@@ -39,13 +37,12 @@ const Login = () => {
                 'Content-Type': 'application/json',
               },
               body: JSON.stringify({ adminEmail:email, adminPassword:hashedPassword }),
-              body: JSON.stringify({ adminEmail:email, adminPassword:hashedPassword }),
             });
         
             if (adminResponse.ok) {
               // If the response is OK, navigate to admin dashboard
               setLoading(false);
-              console.log(adminResponse)
+            //   console.log(adminResponse)
               const jwtToken = await adminResponse.text();
               localStorage.setItem("jwtToken",jwtToken);
               navigate('/admin');
@@ -62,7 +59,7 @@ const Login = () => {
                 
                 
               },
-              body: JSON.stringify({empEmail: email, empPasswd:password }),
+              body: JSON.stringify({empEmail: email, empPassword:password }),
             });
         
             if (employeeResponse.ok) {
@@ -79,7 +76,7 @@ const Login = () => {
           } catch (error) {
             setLoading(false);
             setError(error.message);
-            console.error('Error during login:', error);
+            // console.error('Error during login:', error);
             // Optionally handle error (e.g., show a user-friendly message)
           }
     };
@@ -87,7 +84,7 @@ const Login = () => {
     return (
         <div className="login-container">
             <div className="content-container">
-                <h2 id="typing-effect" className="welcome-message">{welcomeMessage}</h2>
+                <h2 id="typing-effect" className="welcome-message">Welcome to Professional Service Unit</h2>
                 <div className="info-box">
                     <h5 className="info-heading">Improved Efficiency</h5>
                     <div className="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Moiores itaque dolore tempore fugiat! Modi error id sapiente us?</div>

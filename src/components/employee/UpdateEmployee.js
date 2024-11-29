@@ -6,16 +6,16 @@ const UpdateEmployee = () => {
     const location = useLocation();
     const [employee,setEmployee] = useState({
         empEmail: "",
-        empPasswd: "",
+        empPassword: "",
         empId: "",
         empName: "",
         supervisorName: "",
         amdocsExperience: "",
         totalExperience: "",
         amdocsJourney: "",
-        functionalKnowledge: "",
-        primaryTechSkill: "",
-        primaryProductSubdomain: "",
+        functionalKnowledge: [],
+        primaryTechSkill: [],
+        primaryProductSubdomain: [],
         secondaryTechSkill: "",
         secondaryProduct: "",
         devOpsKnowledge: "",
@@ -34,10 +34,17 @@ const UpdateEmployee = () => {
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
-        setEmployee({
-          ...employee,
-          [name]: type === "checkbox" ? checked : value,
-        });
+        if(["functionalKnowledge", "primaryTechSkill", "primaryProductSubdomain"].includes(name)){
+            setEmployee({
+                ...employee,
+                [name]: value.split(",").map(item => item.trim()), // Split by commas and trim spaces
+            });
+        }else{
+            setEmployee({
+                ...employee,
+                [name]: type === "checkbox" ? checked : value,
+            });
+        }
       };
 
     useEffect(() => {
@@ -71,16 +78,16 @@ const UpdateEmployee = () => {
           setSuccessMessage("Employee updated successfully!");
           setEmployee({
             empEmail: "",
-            empPasswd: "",
+            empPassword: "",
             empId: "",
             empName: "",
             supervisorName: "",
             amdocsExperience: "",
             totalExperience: "",
             amdocsJourney: "",
-            functionalKnowledge: "",
-            primaryTechSkill: "",
-            primaryProductSubdomain: "",
+            functionalKnowledge: [],
+            primaryTechSkill: [],
+            primaryProductSubdomain: [],
             secondaryTechSkill: "",
             secondaryProduct: "",
             devOpsKnowledge: "",
@@ -112,19 +119,6 @@ const UpdateEmployee = () => {
                   type="email"
                   name="empEmail"
                   value={employee.empEmail}
-                  onChange={handleChange}
-                  required
-                  style={{ marginLeft: "10px", padding: "5px", width: "300px" }}
-                />
-              </label>
-            </div>
-            <div style={{ marginBottom: "20px" }}>
-              <label>
-                Password:
-                <input
-                  type="password"
-                  name="empPasswd"
-                  value={employee.empPasswd}
                   onChange={handleChange}
                   required
                   style={{ marginLeft: "10px", padding: "5px", width: "300px" }}
@@ -215,7 +209,7 @@ const UpdateEmployee = () => {
                 <input
                   type="text"
                   name="functionalKnowledge"
-                  value={employee.functionalKnowledge}
+                  value={(employee.functionalKnowledge || []).join(",")}
                   onChange={handleChange}
                   required
                   style={{ marginLeft: "10px", padding: "5px", width: "300px" }}
@@ -228,7 +222,7 @@ const UpdateEmployee = () => {
                 <input
                   type="text"
                   name="primaryTechSkill"
-                  value={employee.primaryTechSkill}
+                  value={(employee.primaryTechSkill || []).join(",")}
                   onChange={handleChange}
                   required
                   style={{ marginLeft: "10px", padding: "5px", width: "300px" }}
@@ -241,7 +235,7 @@ const UpdateEmployee = () => {
                 <input
                   type="text"
                   name="primaryProductSubdomain"
-                  value={employee.primaryProductSubdomain}
+                  value={(employee.primaryProductSubdomain || []).join(",")}
                   onChange={handleChange}
                   required
                   style={{ marginLeft: "10px", padding: "5px", width: "300px" }}

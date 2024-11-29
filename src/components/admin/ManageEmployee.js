@@ -10,7 +10,7 @@ const ManageEmployee = () => {
         // setJWTToken(localStorage.getItem("jwtToken"));
         const data = async () => {
             const response = await fetchAllEmp();
-            console.log(response);
+            // console.log(response);
             
         }
         // console.log(data);
