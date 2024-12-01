@@ -43,8 +43,6 @@ const Register = () => {
         const hashedPassword = await hashText(formData.empPassword);
         // console.log(hashedPassword);
         
-        
-    
         try {
           const response = await fetch("http://localhost:8080/api/v1/employee/register", {
             method: "POST",

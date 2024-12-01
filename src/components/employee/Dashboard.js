@@ -1,184 +1,89 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import "../../css/Dashboard.css";
 
-const Dashboard = () => {
-  const [searchInput, setSearchInput] = useState("");
-  const [employee, setEmployee] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [employeeData, setEmployeeData] = useState([]);
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
+function Dashboard() {
+  const [showDropdown, setShowDropdown] = useState(false);
 
-  useEffect(() => {
-    // Retrieve empId from localStorage
-    const empId = localStorage.getItem("empId");
-    const empToken = localStorage.getItem("empToken");
-    // console.log(empId);
-    
-    if (!empId || !empToken) {
-      // If no empId is found, redirect to login page
-      window.location.href = "/";
-      return;
-    }
-
-    // Fetch employee details using empId
-    const fetchEmployeeDetails = async () => {
-      try {
-        const response = await fetch(`http://localhost:8080/api/v1/employee/getById/${empId}`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': empToken 
-          }
-        });
-        const data = await response.json();
-        // console.log(data);
-        
-        if (response.ok) {
-          // console.log(data);
-          
-          setEmployee(data); // Set the employee data
-        } else {
-          setError("Failed to fetch employee details.");
-        }
-      } catch (err) {
-        setError("An error occurred while fetching employee details.");
-      } finally {
-        setLoading(false); // Set loading to false after the request completes
-      }
-    };
-
-    fetchEmployeeDetails();
-  }, []); // Empty dependency array means this effect runs once when the component is mounted
-
-  const handleLogout = () => {
-    localStorage.removeItem("empId"); // Remove empId from localStorage
-    localStorage.removeItem("empToken"); // Remove login status
-    localStorage.removeItem("isLoggedIn");
-    navigate("/"); // Redirect to the homepage
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
   };
-
-  const fetchSearchEmployeeData = async () => {
-    try {
-      setError(""); // Clear previous errors
-      setEmployeeData([]); // Clear previous results
-
-      const response = await fetch(`http://localhost:8080/api/v1/employee/getEmp/${searchInput}`,{
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization" : localStorage.getItem("empToken")
-        }
-      });
-
-      if (!response.ok) {
-        throw new Error("No employees found or error in fetching data");
-      }
-
-      const data = await response.json();
-      // console.log(data);
-      
-
-      if (!Array.isArray(data)) {
-        throw new Error("Invalid response format: Expected an array");
-      }
-
-      setEmployeeData(data);
-    } catch (err) {
-      setError(err.message);
-    }
-  };
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (searchInput.trim()) {
-      fetchSearchEmployeeData();
-    } else {
-      setError("Please enter an Employee ID or Name");
-    }
-  };
-
-  const handleUpdate = () => {
-    navigate("/updateEmployee", {state: {employee}}); // Redirect to the homepage
-  };
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>{error}</div>;
-  }
 
   return (
-    <div>
-      {/* Logout */}
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <h1>Employee Dashboard</h1>
-        <div>
-          <button
-            onClick={handleUpdate}
-            style={{
-              margin: "5px",
-              padding: "10px 20px",
-              fontSize: "16px",
-              backgroundColor: "#cea05c",
-              color: "#fff",
-              border: "none",
-              borderRadius: "5px",
-              cursor: "pointer",
-            }}
-          >
-            Update
-          </button>
-          <button
-            onClick={handleLogout}
-            style={{
-              margin: "5px",
-              padding: "10px 20px",
-              fontSize: "16px",
-              backgroundColor: "#f44336",
-              color: "#fff",
-              border: "none",
-              borderRadius: "5px",
-              cursor: "pointer",
-            }}
-          >
-            Logout
-          </button>
-        </div>
-        
-      </div>
-      <div
-              style={{
-                marginBottom: "20px",
-                border: "1px solid #ccc",
-                padding: "20px",
-                borderRadius: "5px",
-              }}
-            >
-              <p><strong>Employee ID:</strong> {employee.empId}</p>
-              <p><strong>Name:</strong> {employee.empName}</p>
-              <p><strong>Supervisor:</strong> {employee.supervisorName}</p>
-              <p><strong>Amdocs Experience:</strong> {employee.amdocsExperience} years</p>
-              <p><strong>Total Experience:</strong> {employee.totalExperience} years</p>
-              <p><strong>Amdocs Journey:</strong> {employee.amdocsJourney}</p>
-              <p><strong>Functional Knowledge:</strong> {employee.functionalKnowledge}</p>
-              <p><strong>Primary Tech Skill:</strong> {employee.primaryTechSkill}</p>
-              <p><strong>Secondary Tech Skill:</strong> {employee.secondaryTechSkill}</p>
-              <p><strong>Primary Product Subdomain:</strong> {employee.primaryProductSubdomain}</p>
-              <p><strong>Secondary Product:</strong> {employee.secondaryProduct}</p>
-              <p><strong>DevOps Knowledge:</strong> {employee.devOpsKnowledge}</p>
-              <p><strong>Mentoring Ability:</strong> {employee.mentoringAbility ? "Yes" : "No"}</p>
-              <p><strong>Exploration Interest:</strong> {employee.explorationInterest ? "Yes" : "No"}</p>
-              <p><strong>Contributed to Design:</strong> {employee.contributedToDesign ? "Yes" : "No"}</p>
-              <p><strong>Engagement Activity Contribution:</strong> {employee.engagementActivityContribution ? "Yes" : "No"}</p>
-              <p><strong>Presentation Skills:</strong> {employee.presentationSkills}/5</p>
-              <p><strong>Hobbies & Sports:</strong> {employee.hobbiesSports}</p>
-              <p><strong>Additional Info:</strong> {employee.additionalInfo}</p>
+    <div className="dashboard-container">
+      <nav className="navbar">
+        <div className="navbar-left">Hi, Himanshu</div>
+        <div className="navbar-right">
+          <img
+            src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o=" // Replace with actual user image URL
+            alt="User"
+            className="user-image"
+            onClick={toggleDropdown}
+          />
+          {showDropdown && (
+            <div className="dropdown">
+              <div className="dropdown-item">Update Profile</div>
+              <div className="dropdown-item">Logout</div>
             </div>
+          )}
+        </div>
+      </nav>
+      <div className="cards-container">
+        <div className="card">
+          <h3>Employee Information</h3>
+          <p>Employee ID: 456789</p>
+          <p>Name: Himanshu Tanwar</p>
+          <p>Supervisor: Monika</p>
+          <p>Amdocs Experience: 0.3 years</p>
+          <p>Total Experience: 0.6 years</p>
+          <p>
+            Amdocs Journey: Started as a Junior Developer, now a Senior
+            Developer with leadership responsibilities in the Cloud team.
+          </p>
+        </div>
+        <div className="card">
+          <h3>Technical Knowledge</h3>
+          <p>
+            Functional Knowledge:{" "}
+            <span className="tag">PSU</span>
+            <span className="tag">D1</span>
+          </p>
+          <p>
+            Primary Tech Skill: <span className="tag">JAVA</span>
+          </p>
+          <p>
+            Secondary Tech Skill: <span className="tag">React</span>
+          </p>
+          <p>
+            Primary Product Subdomain:{" "}
+            <span className="tag">Real Time Billing</span>
+          </p>
+          <p>
+            Secondary Product:{" "}
+            <span className="tag">Cloud Service Management</span>
+          </p>
+          <p>DevOps Knowledge: None</p>
+        </div>
+        <div className="card">
+          <h3>Additional Information</h3>
+          <p>
+            Mentoring Ability: <span className="emoji">❌</span>
+          </p>
+          <p>
+            Exploration Interest: <span className="emoji">✔️</span>
+          </p>
+          <p>
+            Contributed to Design: <span className="emoji">❌</span>
+          </p>
+          <p>
+            Engagement Activity Contribution: <span className="emoji">✔️</span>
+          </p>
+          <p>Presentation Skills: 2/5</p>
+          <p>Hobbies & Sports: Football, Badminton</p>
+          <p>Additional Info: Willing to learn new technologies.</p>
+        </div>
+      </div>
     </div>
   );
-};
+}
 
 export default Dashboard;

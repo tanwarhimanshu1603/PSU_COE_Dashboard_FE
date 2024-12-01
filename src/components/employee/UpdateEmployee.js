@@ -26,7 +26,7 @@ const UpdateEmployee = () => {
         presentationSkills: "",
         hobbiesSports: "",
         additionalInfo: "",
-      });
+    });
 
     const [successMessage, setSuccessMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");

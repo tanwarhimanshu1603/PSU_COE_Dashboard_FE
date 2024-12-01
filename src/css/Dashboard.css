@@ -1,0 +1,101 @@
+/* General styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  .dashboard-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Navbar styles */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0078d7;
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  .navbar-left {
+    font-size: 1.2em;
+  }
+  
+  .user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .dropdown {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    color: black;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #b8b8b8;
+  }
+  
+  /* Cards container */
+  .cards-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 30%;
+    text-align: left;
+    overflow: hidden;
+  }
+  
+  .card h3 {
+    margin-top: 0;
+  }
+  
+  /* Tag styles */
+  .tag {
+    display: inline-block;
+    background-color: #e0f7fa;
+    color: #0078d7;
+    padding: 5px 10px;
+    margin: 5px 5px;
+    border-radius: 5px;
+    font-size: 0.9em;
+  }
+  
+  /* Emoji styles */
+  .emoji {
+    font-size: 1.2em;
+  }
+  
+  /* Ensure no scrolling */
+  html, body {
+    overflow: hidden;
+  }
+  
