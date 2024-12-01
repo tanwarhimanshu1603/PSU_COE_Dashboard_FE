@@ -70,7 +70,7 @@ const Login = () => {
               const empId = response.employee.empId;
               localStorage.setItem("empToken",jwtToken);
               localStorage.setItem("empId",empId);
-              navigate('/employeeDashboard');
+              navigate('/dashboard');
             }
         
           } catch (error) {

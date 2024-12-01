@@ -25,6 +25,17 @@ body {
   .navbar-left {
     font-size: 1.2em;
   }
+
+  .navbar-right button{
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f7432f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
   
   .user-image {
     width: 40px;
@@ -58,7 +69,7 @@ body {
   /* Cards container */
   .cards-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: flex-start;
     flex-grow: 1;
     padding: 20px;
@@ -75,9 +86,19 @@ body {
   }
   
   .card h3 {
+    margin: 1pc;
     margin-top: 0;
+    text-align: center;
+  }
+
+  .card p{
+    font-weight: bold;
   }
   
+  .card p span{
+    font-weight: normal;
+  }
+
   /* Tag styles */
   .tag {
     display: inline-block;
@@ -91,11 +112,41 @@ body {
   
   /* Emoji styles */
   .emoji {
-    font-size: 1.2em;
+    font-size: 1.5em;
+    color: green;
+  }
+
+  .emoji-cross{
+    font-size: 1.5em;
+    color: red;
+  }
+
+  .update-btn{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 10px;
+  }
+
+  .update-btn button{
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #18a5f6;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+    transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+  }
+
+  .update-btn button:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
   }
   
   /* Ensure no scrolling */
   html, body {
-    overflow: hidden;
+    /* overflow: hidden; */
   }
   

@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const EmployeeDashboard = () => {
-  const [searchInput, setSearchInput] = useState("");
+  // const [searchInput, setSearchInput] = useState("");
   const [employee, setEmployee] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [employeeData, setEmployeeData] = useState([]);
+  // const [employeeData, setEmployeeData] = useState([]);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -58,45 +58,45 @@ const EmployeeDashboard = () => {
     navigate("/"); // Redirect to the homepage
   };
 
-  const fetchSearchEmployeeData = async () => {
-    try {
-      setError(""); // Clear previous errors
-      setEmployeeData([]); // Clear previous results
+  // const fetchSearchEmployeeData = async () => {
+  //   try {
+  //     setError(""); // Clear previous errors
+  //     // setEmployeeData([]); // Clear previous results
 
-      const response = await fetch(`http://localhost:8080/api/v1/employee/getEmp/${searchInput}`,{
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization" : localStorage.getItem("empToken")
-        }
-      });
+  //     const response = await fetch(`http://localhost:8080/api/v1/employee/getEmp/${searchInput}`,{
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         "Authorization" : localStorage.getItem("empToken")
+  //       }
+  //     });
 
-      if (!response.ok) {
-        throw new Error("No employees found or error in fetching data");
-      }
+  //     if (!response.ok) {
+  //       throw new Error("No employees found or error in fetching data");
+  //     }
 
-      const data = await response.json();
-      // console.log(data);
+  //     const data = await response.json();
+  //     // console.log(data);
       
 
-      if (!Array.isArray(data)) {
-        throw new Error("Invalid response format: Expected an array");
-      }
+  //     if (!Array.isArray(data)) {
+  //       throw new Error("Invalid response format: Expected an array");
+  //     }
 
-      setEmployeeData(data);
-    } catch (err) {
-      setError(err.message);
-    }
-  };
+  //     // setEmployeeData(data);
+  //   } catch (err) {
+  //     setError(err.message);
+  //   }
+  // };
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (searchInput.trim()) {
-      fetchSearchEmployeeData();
-    } else {
-      setError("Please enter an Employee ID or Name");
-    }
-  };
+  // const handleSearch = (e) => {
+  //   e.preventDefault();
+  //   if (searchInput.trim()) {
+  //     fetchSearchEmployeeData();
+  //   } else {
+  //     setError("Please enter an Employee ID or Name");
+  //   }
+  // };
 
   const handleUpdate = () => {
     navigate("/updateEmployee", {state: {employee}}); // Redirect to the homepage

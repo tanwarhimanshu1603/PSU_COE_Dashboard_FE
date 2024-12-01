@@ -1,0 +1,68 @@
+.container {
+    max-width: 1100px; /* Adjusted for three fields in a row */
+    margin: 5px auto;
+    /* margin-top: 10px; */
+    max-height: 630px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+    gap: 20px; /* Space between fields */
+  }
+  
+  .form-field {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-field label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-field input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .submit-button {
+    grid-column: span 3; /* Spans the entire row for better visibility */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    justify-self: center; /* Centers the button horizontally */
+  }
+
+    .success-message,
+    .error-message {
+    grid-column: span 3; /* Ensures messages span the entire row */
+    text-align: center;
+    margin-top: 20px;
+    }
+  
+  .success-message {
+    color: green;
+  }
+  
+  .error-message {
+    color: red;
+  }
+
+  
