@@ -37,42 +37,21 @@ body {
     cursor: pointer;
   }
   
-  .user-image {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-  
-  .dropdown {
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 150px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .dropdown-item {
-    padding: 10px;
-    cursor: pointer;
-    text-align: center;
-    color: black;
-  }
-  
-  .dropdown-item:hover {
-    background-color: #b8b8b8;
-  }
-  
   /* Cards container */
   .cards-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-start;
     flex-grow: 1;
     padding: 20px;
+    width: 100%;
+  }
+
+  .card-left{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    /* background-color: black; */
   }
   
   .card {
@@ -80,7 +59,18 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 30%;
+    margin: 5px;
+    text-align: left;
+    overflow: hidden;
+  }
+
+  .card-right{
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 60%;
+    /* background-color: black; */
     text-align: left;
     overflow: hidden;
   }
@@ -93,9 +83,19 @@ body {
 
   .card p{
     font-weight: bold;
+    margin: 2px;
+  }
+
+  .card-right p{
+    font-weight: bold;
+    margin: 5px;
   }
   
   .card p span{
+    font-weight: normal;
+  }
+
+  .card-right p span{
     font-weight: normal;
   }
 
@@ -129,7 +129,7 @@ body {
   }
 
   .update-btn button{
-    margin: 5px;
+    margin: 25px;
     padding: 10px 20px;
     font-size: 16px;
     background-color: #18a5f6;
@@ -143,10 +143,5 @@ body {
 
   .update-btn button:hover {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
-  }
-  
-  /* Ensure no scrolling */
-  html, body {
-    /* overflow: hidden; */
   }
   

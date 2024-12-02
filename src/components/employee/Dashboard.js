@@ -83,18 +83,38 @@ function Dashboard() {
         </div>
       </nav>
       <div className="cards-container">
-        <div className="card">
-          <h3>Employee Information</h3>
-          <p>Employee ID: <span>{employee.empId}</span></p>
-          <p>Name: <span>{employee.empName}</span></p>
-          <p>Supervisor: <span>{employee.supervisorName}</span></p>
-          <p>Amdocs Experience: <span>{employee.amdocsExperience} years</span></p>
-          <p>Total Experience: <span>{employee.totalExperience} years</span></p>
-          <p>
-            Amdocs Journey: <span>{employee.amdocsJourney}</span>
-          </p>
+        <div className="card-left">
+          <div className="card">
+            <h3>Employee Information</h3>
+            <p>Employee ID: <span>{employee.empId}</span></p>
+            <p>Name: <span>{employee.empName}</span></p>
+            <p>Supervisor: <span>{employee.supervisorName}</span></p>
+            <p>Amdocs Experience: <span>{employee.amdocsExperience} years</span></p>
+            <p>Total Experience: <span>{employee.totalExperience} years</span></p>
+            <p>
+              Amdocs Journey: <span>{employee.amdocsJourney}</span>
+            </p>
+          </div>
+          <div className="card">
+            <h3>Additional Information</h3>
+            <p>
+              Mentoring Ability: <span className={`${employee.mentoringAbility ? 'emoji fas fa-check' : 'emoji-cross fas fa-xmark'}`}></span>
+            </p>
+            <p>
+              Exploration Interest: <span className={`${employee.explorationInterest ? 'emoji fas fa-check' : 'emoji-cross fas fa-xmark'}`}></span>
+            </p>
+            <p>
+              Contributed to Design: <span className={`${employee.contributedToDesign ? 'emoji fas fa-check' : 'emoji-cross fas fa-xmark'}`}></span>
+            </p>
+            <p>
+              Engagement Activity Contribution: <span className={`${employee.engagementActivityContribution ? 'emoji fas fa-check' : 'emoji-cross fas fa-xmark'}`}></span>
+            </p>
+            <p>Presentation Skills: <span>{employee.presentationSkills}/5</span></p>
+            <p>Hobbies & Sports: <span>{employee.hobbiesSports}</span></p>
+            <p>Additional Info: <span>{employee.additionalInfo}</span></p>
+          </div>
         </div>
-        <div className="card">
+        <div className="card-right">
           <h3>Technical Knowledge</h3>
           <p>
             Functional Knowledge:{" "}
@@ -124,24 +144,7 @@ function Dashboard() {
           </p>
           <p>DevOps Knowledge: <span>{employee.devOpsKnowledge}</span></p>
         </div>
-        <div className="card">
-          <h3>Additional Information</h3>
-          <p>
-            Mentoring Ability: <span className={`${employee.mentoringAbility ? 'emoji fas fa-check' : 'emoji-cross fas fa-xmark'}`}></span>
-          </p>
-          <p>
-            Exploration Interest: <span className={`${employee.explorationInterest ? 'emoji fas fa-check' : 'emoji-cross fas fa-xmark'}`}></span>
-          </p>
-          <p>
-            Contributed to Design: <span className={`${employee.contributedToDesign ? 'emoji fas fa-check' : 'emoji-cross fas fa-xmark'}`}></span>
-          </p>
-          <p>
-            Engagement Activity Contribution: <span className={`${employee.engagementActivityContribution ? 'emoji fas fa-check' : 'emoji-cross fas fa-xmark'}`}></span>
-          </p>
-          <p>Presentation Skills: <span>{employee.presentationSkills}/5</span></p>
-          <p>Hobbies & Sports: <span>{employee.hobbiesSports}</span></p>
-          <p>Additional Info: <span>{employee.additionalInfo}</span></p>
-        </div>
+        
         <div className="update-btn">
           <button onClick={handleUpdate}>Update</button>
         </div>
