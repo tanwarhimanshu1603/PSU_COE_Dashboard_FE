@@ -20,7 +20,7 @@ const AdminDashboard = () => {
       <AdminNavBar />
       <Routes>
         <Route path="/" element={<DashboardHome />} />
-        <Route path="admin/profile/:empId" element={<ProfilePage />} />
+        <Route path="profile/:empId" element={<ProfilePage />} />
         <Route path="manage" element={<Search />} />
         <Route path="employees" element={<ManageEmployee/>}/>
       </Routes>

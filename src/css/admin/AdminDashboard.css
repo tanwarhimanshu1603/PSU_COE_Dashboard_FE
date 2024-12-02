@@ -5,7 +5,7 @@
     transition: all 0.3s ease;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 755px) {
     .admin-dashboard{
       flex-direction: column;
     }

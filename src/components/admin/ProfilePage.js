@@ -6,7 +6,7 @@ const ProfilePage = () => {
     const { empId } = useParams();
     // console.log(empId)
   return (
-    <div>ProfilePage {empId}</div>
+    <div> <h1>Profile Page of employee {empId}</h1></div>
   )
 }
 

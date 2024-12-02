@@ -17,7 +17,7 @@
     cursor: pointer;
     border:  1px solid rgb(193,193,193);;
     transition: all 0.3s ease;
-    height: 50px;
+    height: 40px;
     display: flex;
     justify-content: space-between;
     width: 32%;
@@ -54,8 +54,12 @@
   .search-result-container{
     display: flex;
     flex-direction: column;
+    width: 100%;
      
   }
+  .search-result-container.open {
+    width: 60%;
+}
   .search-result{
     width: 284px;
     height: 353px;
@@ -72,12 +76,6 @@
     cursor: pointer;
   }
 
-  .dropdown-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin: 20px;
-}
 
 .download-button{
   margin: 5px;
@@ -140,13 +138,53 @@
   cursor: pointer;
   transition: 0.3s ease;
 }
+.result-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination{
+    display: flex;
+    justify-content: space-between;
+    width: 25%;
+    margin: auto;
+    margin-top: 20px;
+    align-items: center;
+}
+.pagination button{
+  padding: 4px;
+  /* margin: 4px; */
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
 
 
-  @media  (max-width: 700px){
+  @media  (max-width: 755px){
     .search-container{
       width: 100%;
     }
     .search-container .search-box{
       width: 90%;
     }
+    .result-container{
+      flex-direction: column-reverse;
+    }
+    .search-result-container.open {
+      width: 100%;
   }
+  }
+
+  @media  (max-width: 503px){
+    .role-name{
+      display: none;
+    }
+    .role-heading{
+      display: none;
+    }
+    .pagination{
+      width: 50%;
+    }
+  }
+
