@@ -18,7 +18,7 @@ const Search = () => {
   const [downloadFormat, setDownloadFormat] = useState('csv');
   const [error, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);  // New state for current page
-  const [itemsPerPage, setItemsPerPage] = useState(6);  // New state for items per page
+  const [itemsPerPage, setItemsPerPage] = useState(14);  // New state for items per page
   const navigate = useNavigate();
   const jwtToken = localStorage.getItem("jwtToken")
   const [empCount, setEmpCount] = useState(0);

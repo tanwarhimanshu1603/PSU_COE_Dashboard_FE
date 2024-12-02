@@ -17,7 +17,7 @@
     cursor: pointer;
     border:  1px solid rgb(193,193,193);;
     transition: all 0.3s ease;
-    height: 50px;
+    height: 40px;
     display: flex;
     justify-content: space-between;
     width: 32%;
