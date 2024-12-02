@@ -62,7 +62,7 @@ const Login = () => {
                 
                 
               },
-              body: JSON.stringify({empEmail: email, empPasswd:password }),
+              body: JSON.stringify({empEmail: email, empPassword:password }),
             });
         
             if (employeeResponse.ok) {
