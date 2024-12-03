@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import "../../css/Dashboard.css";
+
 import { useNavigate, useParams } from 'react-router-dom';  // Add useParams here
 const EmployeeProfilePage = () => {
     const { empId } = useParams();  // Extract empId from URL parameters
+    console.log(empId)
     const [searchInput, setSearchInput] = useState("");
     const [employee, setEmployee] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -10,21 +13,21 @@ const EmployeeProfilePage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-      const empToken = localStorage.getItem("jwtToken");
+      const jwtToken = localStorage.getItem("jwtToken");
 
       // Check if empId or empToken are not found in URL or localStorage
-      if (!empId || !empToken) {
+      if (!empId || !jwtToken) {
         window.location.href = "/";
         return;
       }
 
       const fetchEmployeeDetails = async () => {
         try {
-          const response = await fetch(`http://localhost:8080/api/v1/employee/getById/${empId}`, {
+          const response = await fetch(`http://localhost:8080/api/v1/admin/getById/${empId}`, {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': empToken 
+              'Authorization': `${jwtToken}` 
             }
           });
           const data = await response.json();
@@ -56,7 +59,7 @@ const EmployeeProfilePage = () => {
         setError(""); 
         setEmployeeData([]); 
 
-        const response = await fetch(`http://localhost:8080/api/v1/employee/getEmp/${searchInput}`,{
+        const response = await fetch(`http://localhost:8080/api/v1/admin/getEmp/${searchInput}`,{
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -91,8 +94,50 @@ const EmployeeProfilePage = () => {
     };
 
     const handleUpdate = () => {
-      navigate("/updateEmployee", {state: {employee}}); 
+      navigate(`update`, {state: {employee}}); 
     };
+
+    const handleDelete = async () => {
+      try {
+        // Ensure the employee object exists (i.e., you're trying to delete a valid employee)
+        if (!employee) {
+          alert("No employee data available for deletion.");
+          return;
+        }
+    
+        const jwtToken = localStorage.getItem("jwtToken"); // Get JWT token from localStorage
+    
+        if (!jwtToken) {
+          alert("Unauthorized. Please login first.");
+          return;
+        }
+    
+        // Send DELETE request to the API to delete the employee
+        const response = await fetch("http://localhost:8080/api/v1/admin/delete", {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `${jwtToken}`, // Add the Bearer token to the Authorization header
+          },
+          body: JSON.stringify(employee), // Send the employee object in the request body
+        });
+    
+        if (response.ok) {
+          alert("Employee deleted successfully.");
+          // You can optionally redirect the user after successful deletion
+          navigate("/admin/manage"); // Navigate to the employees list or dashboard after deletion
+        } else {
+          // Handle error cases
+          const data = await response.json();
+          alert(`Error: ${data.message || "Failed to delete employee."}`);
+        }
+      } catch (error) {
+        console.error("Error deleting employee:", error);
+        alert("An error occurred while deleting the employee.");
+      }
+    };
+    
+    
 
     if (loading) {
       return <div>Loading...</div>;
@@ -103,93 +148,82 @@ const EmployeeProfilePage = () => {
     }
 
     return (
-      <div>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <h1>Employee Dashboard</h1>
-          <form onSubmit={handleSearch} style={{ marginBottom: "20px" }}>
-            <input
-              type="text"
-              placeholder="Enter Employee ID or Name"
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-              style={{
-                padding: "10px",
-                fontSize: "16px",
-                width: "300px",
-                marginRight: "10px",
-              }}
-            />
-            <button
-              type="submit"
-              style={{
-                padding: "10px 20px",
-                fontSize: "16px",
-                cursor: "pointer",
-              }}
-            >
-              Search
-            </button>
-          </form>
-          <div>
-            <button
-              onClick={handleUpdate}
-              style={{
-                margin: "5px",
-                padding: "10px 20px",
-                fontSize: "16px",
-                backgroundColor: "#cea05c",
-                color: "#fff",
-                border: "none",
-                borderRadius: "5px",
-                cursor: "pointer",
-              }}
-            >
-              Update
-            </button>
-            <button
-              onClick={handleLogout}
-              style={{
-                margin: "5px",
-                padding: "10px 20px",
-                fontSize: "16px",
-                backgroundColor: "#f44336",
-                color: "#fff",
-                border: "none",
-                borderRadius: "5px",
-                cursor: "pointer",
-              }}
-            >
+      <div className="dashboard-container">
+        {/* <nav className="navbar">
+          <div className="navbar-left">Hi, Himanshu</div>
+          <div className="navbar-right">
+            <button onClick={handleLogout}>
               Logout
             </button>
           </div>
-        </div>
-        <div
-          style={{
-            marginBottom: "20px",
-            border: "1px solid #ccc",
-            padding: "20px",
-            borderRadius: "5px",
-          }}
-        >
-          <p><strong>Employee ID:</strong> {employee.empId}</p>
-          <p><strong>Name:</strong> {employee.empName}</p>
-          <p><strong>Supervisor:</strong> {employee.supervisorName}</p>
-          <p><strong>Amdocs Experience:</strong> {employee.amdocsExperience} years</p>
-          <p><strong>Total Experience:</strong> {employee.totalExperience} years</p>
-          <p><strong>Amdocs Journey:</strong> {employee.amdocsJourney}</p>
-          <p><strong>Functional Knowledge:</strong> {employee.functionalKnowledge}</p>
-          <p><strong>Primary Tech Skill:</strong> {employee.primaryTechSkill}</p>
-          <p><strong>Secondary Tech Skill:</strong> {employee.secondaryTechSkill}</p>
-          <p><strong>Primary Product Subdomain:</strong> {employee.primaryProductSubdomain}</p>
-          <p><strong>Secondary Product:</strong> {employee.secondaryProduct}</p>
-          <p><strong>DevOps Knowledge:</strong> {employee.devOpsKnowledge}</p>
-          <p><strong>Mentoring Ability:</strong> {employee.mentoringAbility ? "Yes" : "No"}</p>
-          <p><strong>Exploration Interest:</strong> {employee.explorationInterest ? "Yes" : "No"}</p>
-          <p><strong>Contributed to Design:</strong> {employee.contributedToDesign ? "Yes" : "No"}</p>
-          <p><strong>Engagement Activity Contribution:</strong> {employee.engagementActivityContribution ? "Yes" : "No"}</p>
-          <p><strong>Presentation Skills:</strong> {employee.presentationSkills}/5</p>
-          <p><strong>Hobbies & Sports:</strong> {employee.hobbiesSports}</p>
-          <p><strong>Additional Info:</strong> {employee.additionalInfo}</p>
+        </nav> */}
+        <div className="cards-container">
+          <div className="card-left">
+            <div className="card">
+              <h3>Employee Information</h3>
+              <p>Employee ID: <span>{employee.empId}</span></p>
+              <p>Name: <span>{employee.empName}</span></p>
+              <p>Email: <span>{employee.empEmail}</span></p>
+              <p>Supervisor: <span>{employee.supervisorName}</span></p>
+              <p>Amdocs Experience: <span>{employee.amdocsExperience} years</span></p>
+              <p>Total Experience: <span>{employee.totalExperience} years</span></p>
+              <p>
+                Amdocs Journey: <span>{employee.amdocsJourney}</span>
+              </p>
+            </div>
+            <div className="card">
+              <h3>Additional Information</h3>
+              <p>
+                Mentoring Ability: <span className={`${employee.mentoringAbility ? 'emoji fas fa-check' : 'emoji-cross fas fa-xmark'}`}></span>
+              </p>
+              <p>
+                Exploration Interest: <span className={`${employee.explorationInterest ? 'emoji fas fa-check' : 'emoji-cross fas fa-xmark'}`}></span>
+              </p>
+              <p>
+                Contributed to Design: <span className={`${employee.contributedToDesign ? 'emoji fas fa-check' : 'emoji-cross fas fa-xmark'}`}></span>
+              </p>
+              <p>
+                Engagement Activity Contribution: <span className={`${employee.engagementActivityContribution ? 'emoji fas fa-check' : 'emoji-cross fas fa-xmark'}`}></span>
+              </p>
+              <p>Presentation Skills: <span>{employee.presentationSkills}/5</span></p>
+              <p>Hobbies & Sports: <span>{employee.hobbiesSports}</span></p>
+              <p>Additional Info: <span>{employee.additionalInfo}</span></p>
+            </div>
+          </div>
+          <div className="card-right">
+            <h3>Technical Knowledge</h3>
+            <p>
+              Functional Knowledge:{" "}
+              {employee.functionalKnowledge?.map((knowledge) => (
+                <span className="tag" key={knowledge}>{knowledge}</span>
+              ))}
+            </p>
+            <p>
+              Primary Tech Skill: 
+              {employee.primaryTechSkill?.map((skill) => (
+                <span className="tag" key={skill}>{skill}</span>
+              ))}
+            </p>
+            <p>
+              Secondary Tech Skill: 
+              <span className={`${employee.secondaryTechSkill && "tag"}`}>{employee.secondaryTechSkill}</span>
+            </p>
+            <p>
+              Primary Product Subdomain:{" "}
+              {employee.primaryProductSubdomain?.map((domain) => (
+                <span className="tag" key={domain}>{domain}</span>
+              ))}
+            </p>
+            <p>
+              Secondary Product:{" "}
+              <span className={`${employee.secondaryProduct && "tag"}`}>{employee.secondaryProduct}</span>
+            </p>
+            <p>DevOps Knowledge: <span>{employee.devOpsKnowledge}</span></p>
+          </div>
+          <div className="update-btn">
+            <button onClick={handleUpdate} className='update'>Update</button>
+            <button onClick={handleDelete} className='delete'>Delete</button>
+          </div>
         </div>
       </div>
     );

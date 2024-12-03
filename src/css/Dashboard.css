@@ -128,17 +128,30 @@ body {
   }
 
   .update-btn{
+    display: flex;
+    gap: 10px;
     position: absolute;
     right: 0;
     bottom: 0;
-    margin: 10px;
+    margin: 25px;
   }
 
-  .update-btn button{
-    margin: 25px;
+  .update{
     padding: 10px 20px;
     font-size: 16px;
     background-color: #18a5f6;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+    transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+  }
+
+  .delete{
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f61818;
     color: #fff;
     border: none;
     border-radius: 5px;

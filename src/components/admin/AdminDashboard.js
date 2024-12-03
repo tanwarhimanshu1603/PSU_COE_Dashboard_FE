@@ -8,6 +8,9 @@ import ManageEmployee from "./ManageEmployee";
 import DashboardHome from "./DashboardHome";
 import RegisterApproval from "./RegisterApproval";
 import EmployeeProfilePage from "./EmployeeProfilePage";
+import AdminUpdateEmployees from "./AdminUpdateEmployees";
+
+
 const AdminDashboard = () => {
 
   const jwtToken = localStorage.getItem("jwtToken");
@@ -26,6 +29,9 @@ const AdminDashboard = () => {
         <Route path="manage" element={<Search />} />
         <Route path="employees" element={<ManageEmployee/>}/>
         <Route path="approve-request" element={<RegisterApproval/>}/>
+        <Route path="profile/:empId/update" element={<AdminUpdateEmployees/>}/>
+
+    
       </Routes>
     </div>
 
