@@ -88,6 +88,7 @@ function Dashboard() {
             <h3>Employee Information</h3>
             <p>Employee ID: <span>{employee.empId}</span></p>
             <p>Name: <span>{employee.empName}</span></p>
+            <p>Email: <span>{employee.empEmail}</span></p>
             <p>Supervisor: <span>{employee.supervisorName}</span></p>
             <p>Amdocs Experience: <span>{employee.amdocsExperience} years</span></p>
             <p>Total Experience: <span>{employee.totalExperience} years</span></p>
@@ -130,7 +131,7 @@ function Dashboard() {
           </p>
           <p>
             Secondary Tech Skill: 
-            <span className="tag">{employee.secondaryTechSkill}</span>
+            <span className={`${employee.secondaryTechSkill && "tag"}`}>{employee.secondaryTechSkill}</span>
           </p>
           <p>
             Primary Product Subdomain:{" "}
@@ -140,7 +141,7 @@ function Dashboard() {
           </p>
           <p>
             Secondary Product:{" "}
-            <span className="tag">{employee.secondaryProduct}</span>
+            <span className={`${employee.secondaryProduct && "tag"}`}>{employee.secondaryProduct}</span>
           </p>
           <p>DevOps Knowledge: <span>{employee.devOpsKnowledge}</span></p>
         </div>

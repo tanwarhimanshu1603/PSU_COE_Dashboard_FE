@@ -81,6 +81,12 @@ body {
     text-align: center;
   }
 
+  .card-right h3 {
+    margin: 1pc;
+    margin-top: 0;
+    text-align: center;
+  }
+
   .card p{
     font-weight: bold;
     margin: 2px;
