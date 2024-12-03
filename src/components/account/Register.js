@@ -66,11 +66,7 @@ const Register = () => {
             empId: "",
             empName: ""
           });
-          const empToken = await response.text();
-          localStorage.setItem("empToken",empToken);
-          localStorage.setItem("empId", formData.empId);
-          localStorage.setItem("isLoggedIn", true);
-          navigate("/employeeDashboard");
+          navigate("/");
         } catch (err) {
           setErrorMessage(err.message);
         }

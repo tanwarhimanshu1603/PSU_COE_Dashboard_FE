@@ -64,7 +64,7 @@ const Search = () => {
       }
 
       setEmployeeData(data);
-      console.log(data)
+      // console.log(data)
       setFilteredEmployees(data)
       setEmpCount(data.length);
     } catch (err) {
