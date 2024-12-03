@@ -10,7 +10,7 @@ const EmployeeProfilePage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-      const empToken = localStorage.getItem("empToken");
+      const empToken = localStorage.getItem("jwtToken");
 
       // Check if empId or empToken are not found in URL or localStorage
       if (!empId || !empToken) {

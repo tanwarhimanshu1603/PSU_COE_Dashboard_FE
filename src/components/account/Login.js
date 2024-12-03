@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import '../../css/Login.css'
 import Logo from '../../static/images/amdocs_logo.png'
 import 'font-awesome/css/font-awesome.min.css'
-import EmployeeRegister from '../account/EmployeeRegister'
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
-    const [welcomeMessage, setWelcomeMessage] = useState("Welcome to Professional Service Unit");
+    // const [welcomeMessage, setWelcomeMessage] = useState("Welcome to Professional Service Unit");
     const navigate = useNavigate(); // Initialize useNavigate
+    
     const hashText = async (text) => {
         const encoder = new TextEncoder(); // Converts the string to a Uint8Array
         const data = encoder.encode(text); // Encode the text
@@ -23,9 +23,10 @@ const Login = () => {
       };
     const handleSubmit = async (e) => {
         
+        
         e.preventDefault();
         const hashedPassword= await hashText(password)
-        console.log(hashedPassword)
+        // console.log(hashedPassword)
         setError(""); // Clear previous error
         setLoading(true);
         try {
@@ -41,8 +42,10 @@ const Login = () => {
             if (adminResponse.ok) {
               // If the response is OK, navigate to admin dashboard
               setLoading(false);
+            //   console.log(adminResponse)
               const jwtToken = await adminResponse.text();
               localStorage.setItem("jwtToken",jwtToken);
+              navigate('/admin');
               navigate('/admin');
 
               return;
@@ -54,8 +57,9 @@ const Login = () => {
               headers: {
                 'Content-Type': 'application/json',
                 
+                
               },
-              body: JSON.stringify({empEmail: email, empPasswd:password }),
+              body: JSON.stringify({empEmail: email, empPassword:password }),
             });
         
             if (employeeResponse.ok) {
@@ -66,13 +70,13 @@ const Login = () => {
               const empId = response.employee.empId;
               localStorage.setItem("empToken",jwtToken);
               localStorage.setItem("empId",empId);
-              navigate('/employeeDashboard');
+              navigate('/dashboard');
             }
         
           } catch (error) {
             setLoading(false);
             setError(error.message);
-            console.error('Error during login:', error);
+            // console.error('Error during login:', error);
             // Optionally handle error (e.g., show a user-friendly message)
           }
     };
@@ -80,18 +84,18 @@ const Login = () => {
     return (
         <div className="login-container">
             <div className="content-container">
-                <h2 id="typing-effect" className="welcome-message">{welcomeMessage}</h2>
+                <h2 id="typing-effect" className="welcome-message">Welcome to Professional Service Unit</h2>
                 <div className="info-box">
-                    <h3 className="info-heading">Improved Efficiency</h3>
+                    <h5 className="info-heading">Improved Efficiency</h5>
                     <div className="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Moiores itaque dolore tempore fugiat! Modi error id sapiente us?</div>
                 </div>
                 <div className="info-box">
-                    <h3 className="info-heading">Efficient Management</h3>
+                    <h5 className="info-heading">Efficient Management</h5>
                     <div className="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Moiores itaque dolore tempore fugiat! Modi error id sapiente us?</div>
                 </div>
                 
                 <div className="info-box">
-                    <h3 className="info-heading">Account Centric</h3>
+                    <h5 className="info-heading">Account Centric</h5>
                     <div className="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Moiores itaque dolore tempore fugiat! Modi error id sapiente us?</div>
                 </div>
             </div>
@@ -119,7 +123,7 @@ const Login = () => {
                                 </button> 
                             </form>
                             <div className="register-option">
-                                Not Registered Yet?<Link to="/employeeRegister"> <span>Register </span></Link>{error && <span style={{ color: "red", margin: 0, padding: "7px", textAlign: "center" }}>{error}</span>}
+                                Not Registered Yet?<Link to="/register"> <span>Register </span></Link>{error && <span style={{ color: "red", margin: 0, padding: "7px", textAlign: "center" }}>{error}</span>}
                             </div>
                         </div>
 

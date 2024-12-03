@@ -8,8 +8,9 @@
 
 .content-container {
   width: 45%;
-  height: 90%;
-  padding-top: 30px;
+  /* height: 90%; */
+  height: auto;
+  /* padding-top: 30px; */
 }
 
 .welcome-message {
@@ -23,14 +24,14 @@
   width: 90%;
   padding: 4px;
   border-left: 3px solid rgb(103, 96, 96);
-  height: 100px;
+  height: auto;
   margin: auto;
   margin-top: 20px;
   border-radius: 10px;
 }
 
 .info-box:hover {
-  background-color: rgb(232, 231, 231);
+  background-color: rgb(239, 239, 239);
   cursor: default;
 }
 
@@ -46,8 +47,8 @@
 
 .form-container {
   width: 45%;
-  height: 90%;
-
+  /* height: 90%; */
+  height: auto;
   border-radius: 15px;
   border: 1px solid gray
 }
@@ -75,7 +76,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 10px;
+  margin: 10px 0px;
 }
 
 .screen {
@@ -100,14 +101,21 @@
   
 }
 
+.login__fields-row {
+  display: flex; /* Enables flexbox layout */
+  gap: 20px; /* Adds space between fields */
+  justify-content: space-between; /* Adjusts alignment */
+}
+
 .login__field {
   padding: 20px 0px;
+  flex: 1;
   position: relative;
 }
 
 .login__icon {
   position: absolute;
-  top: 30px;
+  top: 29px;
   color: #7875B5;
 }
 
@@ -118,7 +126,7 @@
   padding: 10px;
   padding-left: 24px;
   font-weight: 700;
-  width: 75%;
+  width: 100%;
   transition: .2s;
 }
 
@@ -140,7 +148,7 @@
   font-weight: 700;
   display: flex;
   align-items: center;
-  width: 25%;
+  width: fit-content;
   color: #4C489D;
   box-shadow: 0px 2px 2px #5C5696;
   cursor: pointer;
@@ -154,11 +162,11 @@
   outline: none;
 }
 
-.button__icon {
+/* .button__icon {
   font-size: 24px;
   margin-left: auto;
   color: #7875B5;
-}
+} */
 
 
 .register-option{
