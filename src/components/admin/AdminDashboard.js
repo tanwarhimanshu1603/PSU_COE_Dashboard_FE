@@ -3,6 +3,7 @@ import { BrowserRouter as  Router, Routes, Route, useNavigate } from "react-rout
 import AdminNavBar from "./AdminNavBar";
 import '../../css/admin/AdminDashboard.css'
 import Search from "./Search";
+import EmployeeProfilePage from "./EmployeeProfilePage";
 const AdminDashboard = () => {
   const navigate = useNavigate();
 
@@ -30,6 +31,7 @@ const AdminDashboard = () => {
          <Routes>
           <Route path="search" element={<Search/>} />
           <Route path="manage" element={<Search/>} />
+          <Route path="profile:empId" element={<EmployeeProfilePage/>} />
          </Routes>
      </div>
      
