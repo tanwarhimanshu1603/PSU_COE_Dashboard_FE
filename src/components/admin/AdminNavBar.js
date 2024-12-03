@@ -63,11 +63,11 @@ const AdminNavBar = () => {
                         </div>
                     </li>
                     </Link>
-                    <Link to="analytics">
+                    <Link to="approve-request">
                     <li className="nav-link">
                     <div className='tab' >
                             <i className='bx bx-pie-chart-alt icon'></i>
-                            <span className="text nav-text">Analytics</span>
+                            <span className="text nav-text">Approvals</span>
                         </div>
                     </li>
                     </Link>
